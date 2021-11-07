@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
   27:../../libdaisy/src/hid/disp/oled_display.h ****     uint16_t Width() const override { return driver_.Width(); }
   28:../../libdaisy/src/hid/disp/oled_display.h **** 
   29:../../libdaisy/src/hid/disp/oled_display.h ****     /** 
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 2
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 2
 
 
   30:../../libdaisy/src/hid/disp/oled_display.h ****     Fills the entire display with either on/off.
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
   43:../../libdaisy/src/dev/oled_ssd130x.h ****     void SendData(uint8_t* buff, size_t size)
   44:../../libdaisy/src/dev/oled_ssd130x.h ****     {
   45:../../libdaisy/src/dev/oled_ssd130x.h ****         for(size_t i = 0; i < size; i++)
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 3
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 3
 
 
   46:../../libdaisy/src/dev/oled_ssd130x.h ****         {
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  100:../../libdaisy/src/dev/oled_ssd130x.h **** 
  101:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.Init(spi_config);
  102:../../libdaisy/src/dev/oled_ssd130x.h **** 
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 4
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 4
 
 
  103:../../libdaisy/src/dev/oled_ssd130x.h ****         // Reset and Configure OLED.
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  157:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x0F);
  158:../../libdaisy/src/dev/oled_ssd130x.h ****                 // COM Pins
  159:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xDA);
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 5
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 5
 
 
  160:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x02);
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  214:../../libdaisy/src/dev/oled_ssd130x.h ****         // Charge Pump
  215:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0x8D);
  216:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0x14);
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 6
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 6
 
 
  217:../../libdaisy/src/dev/oled_ssd130x.h ****         // Set Segment Remap
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
   55              		.cfi_endproc
   56              	.LFE1813:
   58 000e 00BF     		.section	.text._ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransport
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 7
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 7
 
 
   59              		.align	1
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  111              		.weak	_ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6Updat
  112              		.syntax unified
  113              		.thumb
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 8
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 8
 
 
  114              		.thumb_func
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  135              		.cfi_offset 5, -20
  136              		.cfi_offset 6, -16
  137              		.cfi_offset 7, -12
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 9
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 9
 
 
  138              		.cfi_offset 8, -8
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  184 0020 FFF7FEFF 		bl	dsy_gpio_write
  185              	.LVL12:
  112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 10
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 10
 
 
  186              		.loc 2 112 9 is_stmt 1 view .LVU27
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  229 004e 1023     		movs	r3, #16
  230              	.LBE45:
  231              	.LBE43:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 11
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 11
 
 
  232              	.LBB46:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  273 0076 6423     		movs	r3, #100
  274 0078 3046     		mov	r0, r6
  275              	.LBE50:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 12
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 12
 
 
  276              	.LBE49:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
   15:../../libdaisy/src/hid/disp/display.h ****  * This interface is used as a base class for all types of 1bit-per-pixel
   16:../../libdaisy/src/hid/disp/display.h ****  * graphics displays.
   17:../../libdaisy/src/hid/disp/display.h **** */
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 13
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 13
 
 
   18:../../libdaisy/src/hid/disp/display.h **** class OneBitGraphicsDisplay
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
   72:../../libdaisy/src/hid/disp/display.h ****                           bool         fill = false)
   73:../../libdaisy/src/hid/disp/display.h ****         = 0;
   74:../../libdaisy/src/hid/disp/display.h **** 
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 14
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 14
 
 
   75:../../libdaisy/src/hid/disp/display.h ****     /**
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  129:../../libdaisy/src/hid/disp/display.h ****     \param y y pos
  130:../../libdaisy/src/hid/disp/display.h ****     */
  131:../../libdaisy/src/hid/disp/display.h ****     void SetCursor(uint16_t x, uint16_t y)
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 15
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 15
 
 
  132:../../libdaisy/src/hid/disp/display.h ****     {
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  320              		.loc 3 181 10 is_stmt 0 view .LVU61
  321 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
  322              		.cfi_def_cfa_offset 36
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 16
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 16
 
 
  323              		.cfi_offset 4, -36
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  363              		.loc 3 190 42 view .LVU72
  364 0034 51D8     		bhi	.L11
  365              	.LVL27:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 17
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 17
 
 
  366              	.LBB73:
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  408 0058 07FA0EF7 		lsl	r7, r7, lr
  244:../../libdaisy/src/dev/oled_ssd130x.h ****         else
  409              		.loc 2 244 42 view .LVU85
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 18
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 18
 
 
  410 005c 95F814E0 		ldrb	lr, [r5, #20]	@ zero_extendqisi2
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  446              		.loc 2 244 54 view .LVU94
  447 007c 02F0070B 		and	fp, r2, #7
  244:../../libdaisy/src/dev/oled_ssd130x.h ****         else
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 19
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 19
 
 
  448              		.loc 2 244 48 view .LVU95
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  487              	.LVL36:
  211:../../libdaisy/src/hid/disp/display.h ****                 y1 += signY;
  488              		.loc 3 211 23 view .LVU108
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 20
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 20
 
 
  489 00b6 A444     		add	ip, ip, r4
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
   41:../../libdaisy/src/hid/disp/oled_display.h ****     {
  534              		.loc 1 41 10 is_stmt 1 view .LVU117
  535              	.LBB86:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 21
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 21
 
 
  239:../../libdaisy/src/dev/oled_ssd130x.h ****     {
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  246:../../libdaisy/src/dev/oled_ssd130x.h ****     }
  581              		.loc 2 246 42 view .LVU127
  582 00f0 27EA0E07 		bic	r7, r7, lr
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 22
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 22
 
 
  583 00f4 2F75     		strb	r7, [r5, #20]
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  219:../../libdaisy/src/hid/disp/display.h ****                   uint_fast8_t x2,
  220:../../libdaisy/src/hid/disp/display.h ****                   uint_fast8_t y2,
  221:../../libdaisy/src/hid/disp/display.h ****                   bool         on,
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 23
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 23
 
 
  222:../../libdaisy/src/hid/disp/display.h ****                   bool         fill = false) override
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  678              	.LBB193:
  679              	.LBI177:
   41:../../libdaisy/src/hid/disp/oled_display.h ****     {
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 24
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 24
 
 
  680              		.loc 1 41 10 view .LVU141
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  721              		.loc 3 228 17 view .LVU155
  722 0064 0136     		adds	r6, r6, #1
  723              	.LVL51:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 25
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 25
 
 
  724              	.LBB194:
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  231:../../libdaisy/src/hid/disp/display.h ****                 }
  232:../../libdaisy/src/hid/disp/display.h ****             }
  233:../../libdaisy/src/hid/disp/display.h ****         }
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 26
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 26
 
 
  234:../../libdaisy/src/hid/disp/display.h ****         else
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  808 0094 4FF0FF3A 		mov	r10, #-1
  809              	.LBB211:
  810              	.LBB207:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 27
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 27
 
 
  811              	.LBB203:
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  244:../../libdaisy/src/dev/oled_ssd130x.h ****         else
  853              		.loc 2 244 42 view .LVU187
  854              	.LBE203:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 28
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 28
 
 
  855              	.LBE207:
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  897 0112 87F81490 		strb	r9, [r7, #20]
  898              	.L52:
  899              	.LVL63:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 29
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 29
 
 
  244:../../libdaisy/src/dev/oled_ssd130x.h ****         else
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  188:../../libdaisy/src/hid/disp/display.h ****         int_fast16_t signX  = ((x1 < x2) ? 1 : -1);
  942              		.loc 3 188 22 view .LVU212
  943 0136 B9F1000F 		cmp	r9, #0
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 30
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 30
 
 
  944 013a B8BF     		it	lt
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  989              		.loc 3 190 42 view .LVU221
  990 0162 4FF0FF36 		mov	r6, #-1
  991 0166 0096     		str	r6, [sp]
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 31
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 31
 
 
  992              	.LBB246:
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  1036              	.LBI247:
   41:../../libdaisy/src/hid/disp/oled_display.h ****     {
  1037              		.loc 1 41 10 is_stmt 1 view .LVU232
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 32
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 32
 
 
  1038              	.LBB248:
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  1078              		.loc 3 205 23 view .LVU246
  1079 01d8 ACEB090C 		sub	ip, ip, r9
  1080              	.LVL78:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 33
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 33
 
 
  206:../../libdaisy/src/hid/disp/display.h ****             }
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  1125              	.LBE263:
  1126              	.LBE262:
  189:../../libdaisy/src/hid/disp/display.h ****         int_fast16_t signY  = ((y1 < y2) ? 1 : -1);
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 34
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 34
 
 
  1127              		.loc 3 189 42 view .LVU257
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  1169              		.loc 3 199 26 is_stmt 1 view .LVU269
  1170 0246 049E     		ldr	r6, [sp, #16]
  1171 0248 26BB     		cbnz	r6, .L70
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 35
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 35
 
 
  187:../../libdaisy/src/hid/disp/display.h ****         int_fast16_t deltaY = abs((int_fast16_t)y2 - (int_fast16_t)y1);
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  1212              	.LBE274:
  1213              	.LBE273:
  1214              	.LBE272:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 36
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 36
 
 
  203:../../libdaisy/src/hid/disp/display.h ****             {
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  1257 02a6 4FF00108 		movhi	r8, #1
  1258 02aa 4FF0FF38 		movls	r8, #-1
  1259              	.LVL93:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 37
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 37
 
 
  191:../../libdaisy/src/hid/disp/display.h ****         int_fast16_t error2;
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  1301 02d8 002B     		cmp	r3, #0
  1302 02da 7FF4CDAE 		bne	.L36
  1303 02de 6646     		mov	r6, ip
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 38
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 38
 
 
  1304 02e0 0B46     		mov	r3, r1
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  202:../../libdaisy/src/hid/disp/display.h ****             if(error2 > -deltaY)
  1345              		.loc 3 202 20 view .LVU322
  1346 0310 4FEA4607 		lsl	r7, r6, #1
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 39
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 39
 
 
  1347              	.LVL98:
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  1391              	.LBE204:
  1392              	.LBE208:
  1393              	.LBE219:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 40
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 40
 
 
  189:../../libdaisy/src/hid/disp/display.h ****         int_fast16_t signY  = ((y1 < y2) ? 1 : -1);
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  1438 0358 9CF81480 		ldrb	r8, [ip, #20]	@ zero_extendqisi2
  1439 035c 28EA0B08 		bic	r8, r8, fp
  1440 0360 8CF81480 		strb	r8, [ip, #20]
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 41
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 41
 
 
  1441 0364 8AE7     		b	.L73
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  1488 0378 09FA0BFB 		lsl	fp, r9, fp
  246:../../libdaisy/src/dev/oled_ssd130x.h ****     }
  1489              		.loc 2 246 42 view .LVU351
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 42
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 42
 
 
  1490 037c 97F81490 		ldrb	r9, [r7, #20]	@ zero_extendqisi2
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  1536 03a0 8EBB     		cbnz	r6, .L95
  1537              	.LBE237:
  1538              	.LBE242:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 43
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 43
 
 
  1539              	.LBE255:
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  1582              	.LBE307:
  1583              	.LBB308:
  1584              	.LBB302:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 44
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 44
 
 
  1585              	.LBB300:
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  1630              	.L47:
  246:../../libdaisy/src/dev/oled_ssd130x.h ****     }
  1631              		.loc 2 246 42 view .LVU380
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 45
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 45
 
 
  1632              	.LBE266:
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  1680              	.L128:
  190:../../libdaisy/src/hid/disp/display.h ****         int_fast16_t error  = deltaX - deltaY;
  1681              		.loc 3 190 42 view .LVU387
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 46
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 46
 
 
  1682              	.LBE258:
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  1730              		.cfi_offset 7, -24
  1731              		.cfi_offset 8, -20
  1732              		.cfi_offset 9, -16
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 47
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 47
 
 
  1733              		.cfi_offset 10, -12
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
   12:menus.cpp     ****                      33,
   13:menus.cpp     ****                      !colorTemplate,
   14:menus.cpp     ****                      true);
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 48
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 48
 
 
  1774              		.loc 4 14 26 view .LVU405
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  1818 004a 01F0070C 		and	ip, r1, #7
  244:../../libdaisy/src/dev/oled_ssd130x.h ****         else
  1819              		.loc 2 244 48 view .LVU416
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 49
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 49
 
 
  1820 004e 0120     		movs	r0, #1
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  226:../../libdaisy/src/hid/disp/display.h ****             {
  1863              		.loc 3 226 40 is_stmt 0 view .LVU428
  1864              	.LBE653:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 50
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 50
 
 
  1865              	.LBE652:
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  1907 00c8 4345     		cmp	r3, r8
  1908 00ca 8CBF     		ite	hi
  1909 00cc 4FF0010A 		movhi	r10, #1
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 51
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 51
 
 
  1910 00d0 4FF0FF3A 		movls	r10, #-1
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
   41:../../libdaisy/src/hid/disp/oled_display.h ****     {
  1954              		.loc 1 41 10 is_stmt 1 view .LVU448
  1955              	.LBB669:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 52
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 52
 
 
  1956              	.LBI669:
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  1997 012c C0F2FD84 		blt	.L151
  209:../../libdaisy/src/hid/disp/display.h ****             {
  1998              		.loc 3 209 13 view .LVU462
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 53
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 53
 
 
  1999 0130 F145     		cmp	r9, lr
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  2040 0168 40F0E587 		bne	.L155
  2041              	.LVL137:
  2042              	.LBB675:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 54
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 54
 
 
  2043              	.LBI675:
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  2086              	.LBE680:
  2087              	.LBE681:
  2088              	.LBE682:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 55
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 55
 
 
  199:../../libdaisy/src/hid/disp/display.h ****         {
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  244:../../libdaisy/src/dev/oled_ssd130x.h ****         else
  2129              		.loc 2 244 42 view .LVU499
  2130 01c6 92F814B0 		ldrb	fp, [r2, #20]	@ zero_extendqisi2
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 56
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 56
 
 
  2131 01ca 40EA0B00 		orr	r0, r0, fp
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
   26:menus.cpp     ****     screen->DrawLine(screen->Width() / 2 - 10 + 3,
  2171              		.loc 4 26 36 view .LVU512
  2172 01fc 4FF03908 		mov	r8, #57
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 57
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 57
 
 
  2173 0200 C246     		mov	r10, r8
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  2218 0232 07D8     		bhi	.L168
  244:../../libdaisy/src/dev/oled_ssd130x.h ****         else
  2219              		.loc 2 244 42 view .LVU522
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 58
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 58
 
 
  2220 0234 02F5FE72 		add	r2, r2, #508
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  2262              		.loc 2 244 48 view .LVU534
  2263 0260 0BFA00F0 		lsl	r0, fp, r0
  244:../../libdaisy/src/dev/oled_ssd130x.h ****         else
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 59
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 59
 
 
  2264              		.loc 2 244 42 view .LVU535
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
   33:menus.cpp     ****                      screen->Width() / 2 - 10 + 6,
   34:menus.cpp     ****                      52,
   35:menus.cpp     ****                      !colorTemplate);
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 60
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 60
 
 
  2305              		.loc 4 35 36 is_stmt 0 view .LVU548
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  2351              	.LVL157:
  2352              	.LBB712:
  2353              	.LBI707:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 61
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 61
 
 
   41:../../libdaisy/src/hid/disp/oled_display.h ****     {
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  2394 0302 08EBC212 		add	r2, r8, r2, lsl #7
  2395              	.LBE715:
  2396              	.LBE714:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 62
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 62
 
 
  2397              	.LBE713:
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  2438              		.loc 3 199 26 is_stmt 0 view .LVU584
  2439 033a BCF1340F 		cmp	ip, #52
  2440 033e D8D1     		bne	.L180
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 63
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 63
 
 
  2441              	.LVL163:
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  2482              		.loc 2 241 9 view .LVU594
  2483 0378 7F2B     		cmp	r3, #127
  2484              	.LBE724:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 64
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 64
 
 
  2485              	.LBE723:
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  2527              		.loc 2 244 28 is_stmt 0 view .LVU606
  2528 039c 4FEADC02 		lsr	r2, ip, #3
  244:../../libdaisy/src/dev/oled_ssd130x.h ****         else
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 65
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 65
 
 
  2529              		.loc 2 244 48 view .LVU607
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  205:../../libdaisy/src/hid/disp/display.h ****                 x1 += signX;
  2571              		.loc 3 205 23 view .LVU620
  2572 03d8 A1F10F01 		sub	r1, r1, #15
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 66
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 66
 
 
  2573              	.LVL171:
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  2616              	.LBB735:
  2617              	.LBI735:
  181:../../libdaisy/src/hid/disp/display.h ****                   uint_fast8_t y1,
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 67
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 67
 
 
  2618              		.loc 3 181 10 is_stmt 1 view .LVU630
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  2662              	.LBE743:
  2663              	.LBE746:
  199:../../libdaisy/src/hid/disp/display.h ****         {
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 68
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 68
 
 
  2664              		.loc 3 199 26 is_stmt 1 view .LVU641
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  244:../../libdaisy/src/dev/oled_ssd130x.h ****         else
  2705              		.loc 2 244 42 view .LVU655
  2706              	.LBE749:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 69
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 69
 
 
  2707              	.LBE748:
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  2746 0498 4FF04108 		mov	r8, #65
  2747 049c C246     		mov	r10, r8
  2748              	.L210:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 70
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 70
 
 
  2749 049e AB42     		cmp	r3, r5
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  2794 04d2 07D8     		bhi	.L214
  244:../../libdaisy/src/dev/oled_ssd130x.h ****         else
  2795              		.loc 2 244 42 view .LVU678
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 71
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 71
 
 
  2796 04d4 02F20122 		addw	r2, r2, #513
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  2838              		.loc 2 244 48 view .LVU690
  2839 0500 0BFA00F0 		lsl	r0, fp, r0
  244:../../libdaisy/src/dev/oled_ssd130x.h ****         else
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 72
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 72
 
 
  2840              		.loc 2 244 42 view .LVU691
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
   55:menus.cpp     ****                      screen->Width() / 2 - 10 + 13,
   56:menus.cpp     ****                      52,
   57:menus.cpp     ****                      !colorTemplate);
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 73
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 73
 
 
  2880              		.loc 4 57 36 is_stmt 0 view .LVU704
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  2927              	.LBE770:
  191:../../libdaisy/src/hid/disp/display.h ****         int_fast16_t error2;
  2928              		.loc 3 191 22 view .LVU713
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 74
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 74
 
 
  2929 057a A9F10F01 		sub	r1, r9, #15
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  2970              		.loc 2 241 9 view .LVU726
  2971 05a0 B8F17F0F 		cmp	r8, #127
  244:../../libdaisy/src/dev/oled_ssd130x.h ****         else
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 75
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 75
 
 
  2972              		.loc 2 244 42 view .LVU727
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  3014              		.loc 3 199 26 is_stmt 1 view .LVU739
  3015 05d8 4345     		cmp	r3, r8
  3016 05da DBD1     		bne	.L226
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 76
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 76
 
 
  199:../../libdaisy/src/hid/disp/display.h ****         {
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  189:../../libdaisy/src/hid/disp/display.h ****         int_fast16_t signY  = ((y1 < y2) ? 1 : -1);
  3059              		.loc 3 189 42 view .LVU750
  3060 0618 4345     		cmp	r3, r8
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 77
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 77
 
 
  3061 061a 8CBF     		ite	hi
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  3105              	.LBB792:
  3106              	.LBI792:
  239:../../libdaisy/src/dev/oled_ssd130x.h ****     {
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 78
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 78
 
 
  3107              		.loc 2 239 10 view .LVU761
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  3148              		.loc 3 209 13 view .LVU774
  3149 0678 F145     		cmp	r9, lr
  206:../../libdaisy/src/hid/disp/display.h ****             }
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 79
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 79
 
 
  3150              		.loc 3 206 20 view .LVU775
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  3192              	.LVL217:
  3193              	.LBB798:
  3194              	.LBI798:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 80
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 80
 
 
  181:../../libdaisy/src/hid/disp/display.h ****                   uint_fast8_t y1,
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  3238              		.loc 2 244 42 view .LVU796
  3239              	.LBE803:
  3240              	.LBE804:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 81
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 81
 
 
  3241              	.LBE805:
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  3281 0710 04D8     		bhi	.L251
  244:../../libdaisy/src/dev/oled_ssd130x.h ****         else
  3282              		.loc 2 244 42 view .LVU811
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 82
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 82
 
 
  3283 0712 92F814B0 		ldrb	fp, [r2, #20]	@ zero_extendqisi2
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  3322 0744 40F09B83 		bne	.L492
  3323              	.LVL227:
  3324              	.L370:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 83
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 83
 
 
   69:menus.cpp     ****                      52,
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  239:../../libdaisy/src/dev/oled_ssd130x.h ****     {
  3371              		.loc 2 239 10 view .LVU832
  3372              	.LBB818:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 84
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 84
 
 
  241:../../libdaisy/src/dev/oled_ssd130x.h ****             return;
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  3414              	.LVL234:
  3415              	.LBB826:
  3416              	.LBB825:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 85
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 85
 
 
  3417              	.LBB824:
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  3458              	.LBE813:
   74:menus.cpp     **** 
   75:menus.cpp     ****     //S
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 86
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 86
 
 
   76:menus.cpp     ****     screen->DrawLine(screen->Width() / 2 - 10 + 20,
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  3501              	.LBB831:
  3502              	.LBI831:
  239:../../libdaisy/src/dev/oled_ssd130x.h ****     {
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 87
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 87
 
 
  3503              		.loc 2 239 10 view .LVU869
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  244:../../libdaisy/src/dev/oled_ssd130x.h ****         else
  3548              		.loc 2 244 28 is_stmt 0 view .LVU879
  3549 0842 CA08     		lsrs	r2, r1, #3
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 88
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 88
 
 
  244:../../libdaisy/src/dev/oled_ssd130x.h ****         else
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  3589 0876 0139     		subs	r1, r1, #1
  3590              	.LVL248:
  3591              	.L277:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 89
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 89
 
 
  199:../../libdaisy/src/hid/disp/display.h ****         {
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  3633              		.loc 3 187 22 view .LVU905
  3634 08ac B9F1000F 		cmp	r9, #0
  3635 08b0 B8BF     		it	lt
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 90
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 90
 
 
  3636 08b2 C9F10009 		rsblt	r9, r9, #0
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  3680              	.L283:
  3681              	.LBB854:
  3682              	.LBI854:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 91
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 91
 
 
   41:../../libdaisy/src/hid/disp/oled_display.h ****     {
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  203:../../libdaisy/src/hid/disp/display.h ****             {
  3724              		.loc 3 203 13 view .LVU929
  3725 090e 1EF1060F 		cmn	lr, #6
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 92
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 92
 
 
  3726 0912 C0F21981 		blt	.L287
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  3766              	.L380:
  3767 0946 4FF04A09 		mov	r9, #74
  3768 094a B245     		cmp	r10, r6
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 93
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 93
 
 
  3769 094c 4FF04002 		mov	r2, #64
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  3813 0978 14FA82F2 		uxtah	r2, r4, r2
  3814 097c 107D     		ldrb	r0, [r2, #20]	@ zero_extendqisi2
  3815 097e 40F01000 		orr	r0, r0, #16
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 94
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 94
 
 
  3816 0982 1075     		strb	r0, [r2, #20]
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  3857 09a4 2244     		add	r2, r2, r4
  241:../../libdaisy/src/dev/oled_ssd130x.h ****             return;
  3858              		.loc 2 241 9 view .LVU966
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 95
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 95
 
 
  3859 09a6 07D8     		bhi	.L297
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
   91:menus.cpp     ****     screen->DrawLine(screen->Width() / 2 - 10 + 20,
  3898              		.loc 4 91 36 view .LVU979
  3899 09d8 D368     		ldr	r3, [r2, #12]
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 96
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 96
 
 
  3900              		.loc 4 95 36 view .LVU980
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  189:../../libdaisy/src/hid/disp/display.h ****         int_fast16_t signY  = ((y1 < y2) ? 1 : -1);
  3946              		.loc 3 189 42 view .LVU989
  3947 0a12 4FF0FF3E 		mov	lr, #-1
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 97
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 97
 
 
  3948              	.LBB887:
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  3991 0a38 B8F17F0F 		cmp	r8, #127
  244:../../libdaisy/src/dev/oled_ssd130x.h ****         else
  3992              		.loc 2 244 42 view .LVU1001
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 98
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 98
 
 
  3993 0a3c 08EBC212 		add	r2, r8, r2, lsl #7
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4034              	.LVL284:
  4035              	.L306:
  199:../../libdaisy/src/hid/disp/display.h ****         {
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 99
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 99
 
 
  4036              		.loc 3 199 26 view .LVU1015
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4074              		.loc 4 100 71 view .LVU1028
  4075 0ab0 77EE877A 		vadd.f32	s15, s15, s14
   97:menus.cpp     ****                      this->splashScreenRectY + 2,
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 100
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 100
 
 
  4076              		.loc 4 97 21 view .LVU1029
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4121              	.LBB915:
  4122              	.LBB912:
  4123              	.LBB906:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 101
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 101
 
 
  4124              	.LBB901:
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4167              	.LBB910:
  4168              	.LBB905:
  246:../../libdaisy/src/dev/oled_ssd130x.h ****     }
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 102
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 102
 
 
  4169              		.loc 2 246 42 view .LVU1050
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4212              	.LVL293:
  4213              	.L184:
  212:../../libdaisy/src/hid/disp/display.h ****             }
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 103
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 103
 
 
  4214              		.loc 3 212 20 view .LVU1062
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4257              	.LVL302:
  4258              	.L151:
  212:../../libdaisy/src/hid/disp/display.h ****             }
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 104
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 104
 
 
  4259              		.loc 3 212 20 view .LVU1074
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4303              	.LBE752:
  4304              	.LBE924:
  4305              	.LBB925:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 105
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 105
 
 
  4306              	.LBB875:
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4348              	.LBE827:
  4349              	.LBE927:
  4350              	.LBB928:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 106
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 106
 
 
  4351              	.LBB812:
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4393              	.LBE782:
  4394              	.LBE930:
  4395              	.LBB931:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 107
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 107
 
 
  4396              	.LBB767:
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4433 0b9a AA42     		cmp	r2, r5
  105:menus.cpp     ****                      screen->Height() / 2 - (this->splashScreenRectY + 2),
  4434              		.loc 4 105 43 view .LVU1122
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 108
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 108
 
 
  4435 0b9c 77EEC77A 		vsub.f32	s15, s15, s14
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  241:../../libdaisy/src/dev/oled_ssd130x.h ****             return;
  4478              		.loc 2 241 14 is_stmt 0 view .LVU1134
  4479 0be2 7F28     		cmp	r0, #127
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 109
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 109
 
 
  4480 0be4 6246     		mov	r2, ip
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4523              	.LBE940:
  4524              	.LBE945:
  4525              	.LBE950:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 110
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 110
 
 
  4526              	.LBE953:
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4570              	.LBE934:
  226:../../libdaisy/src/hid/disp/display.h ****             {
  4571              		.loc 3 226 13 is_stmt 1 view .LVU1156
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 111
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 111
 
 
  226:../../libdaisy/src/hid/disp/display.h ****             {
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4617              	.LBB959:
  4618              	.LBB960:
  4619              	.LBB961:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 112
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 112
 
 
  111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4663              	.LBB966:
  4664              	.LBB964:
  112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 113
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 113
 
 
  4665              		.loc 2 112 30 view .LVU1182
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4708              	.LBI970:
  109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
  4709              		.loc 2 109 10 is_stmt 1 view .LVU1194
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 114
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 114
 
 
  4710              	.LBB972:
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4752              		.loc 2 118 30 view .LVU1207
  4753              	.LBE975:
  4754              	.LBE976:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 115
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 115
 
 
  4755              		.loc 2 270 9 is_stmt 1 view .LVU1208
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
   41:../../libdaisy/src/hid/disp/oled_display.h ****     {
  4802              		.loc 1 41 10 is_stmt 1 view .LVU1217
  4803              	.LBB885:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 116
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 116
 
 
  239:../../libdaisy/src/dev/oled_ssd130x.h ****     {
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4848 0d10 3FF452AF 		beq	.L389
  4849              	.L506:
  107:menus.cpp     ****                      (screen->Height() - this->splashScreenRectY) + 2,
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 117
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 117
 
 
  4850              		.loc 4 107 37 view .LVU1228
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4895              		.loc 4 47 21 view .LVU1237
  4896 0d6a 2522     		movs	r2, #37
  4897 0d6c 0120     		movs	r0, #1
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 118
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 118
 
 
  4898 0d6e 4146     		mov	r1, r8
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4940              		.loc 4 53 21 view .LVU1249
  4941 0db4 0346     		mov	r3, r0
  4942 0db6 3FF4D2AB 		beq	.L508
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 119
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 119
 
 
  4943              	.L223:
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  4985 0dfa C0F34F02 		ubfx	r2, r0, #1, #16
  4986 0dfe B145     		cmp	r9, r6
  4987 0e00 02F10600 		add	r0, r2, #6
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 120
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 120
 
 
  4988 0e04 80B2     		uxth	r0, r0
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  5030 0e48 2046     		mov	r0, r4
  5031 0e4a 9847     		blx	r3
  5032              	.LVL367:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 121
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 121
 
 
   65:menus.cpp     ****                      screen->Width() / 2 - 10 + 16,
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  5075 0e94 D046     		mov	r8, r10
  5076 0e96 3FF45DAC 		beq	.L371
  5077              	.L493:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 122
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 122
 
 
   71:menus.cpp     ****                      screen->Width() / 2 - 10 + 18,
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  5120 0edc 0AF10A0A 		add	r10, r10, #10
  5121 0ee0 AB42     		cmp	r3, r5
  5122 0ee2 1FFA8AFA 		uxth	r10, r10
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 123
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 123
 
 
   76:menus.cpp     ****     screen->DrawLine(screen->Width() / 2 - 10 + 20,
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  5165 0f24 4FEA500A 		lsr	r10, r0, #1
   83:menus.cpp     ****                      screen->Width() / 2 - 10 + 22,
  5166              		.loc 4 83 36 view .LVU1310
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 124
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 124
 
 
  5167 0f28 DB68     		ldr	r3, [r3, #12]
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
   88:menus.cpp     ****                      screen->Width() / 2 - 10 + 20,
  5211              		.loc 4 88 36 view .LVU1321
  5212 0f74 2368     		ldr	r3, [r4]
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 125
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 125
 
 
   86:menus.cpp     ****     screen->DrawLine(screen->Width() / 2 - 10 + 22,
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  5256              	.L500:
   91:menus.cpp     ****     screen->DrawLine(screen->Width() / 2 - 10 + 20,
  5257              		.loc 4 91 35 view .LVU1333
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 126
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 126
 
 
  5258 0fc2 2046     		mov	r0, r4
@@ -7558,7 +7558,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  5300 1006 FFF74ABA 		b	.L210
  5301              	.L482:
   42:menus.cpp     ****     screen->DrawLine(screen->Width() / 2 - 10 + 8,
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 127
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 127
 
 
  5302              		.loc 4 42 35 view .LVU1346
@@ -7618,7 +7618,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  5346 1052 2046     		mov	r0, r4
  5347 1054 CDE9002C 		strd	r2, ip, [sp]
  5348 1058 3422     		movs	r2, #52
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 128
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 128
 
 
  5349 105a C847     		blx	r9
@@ -7678,7 +7678,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  5394              		.cfi_restore 4
  5395              		.cfi_def_cfa_offset 0
  5396              	.LVL390:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 129
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 129
 
 
  111:menus.cpp     ****     screen->Update();
@@ -7738,7 +7738,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  5442 10d0 C847     		blx	r9
  5443              	.LVL395:
  5444 10d2 FFF735B9 		b	.L181
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 130
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 130
 
 
  5445              	.L479:
@@ -7798,7 +7798,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
   28:menus.cpp     ****                      screen->Width() / 2 - 10 + 6,
  5488              		.loc 4 28 47 view .LVU1387
  5489 1118 111F     		subs	r1, r2, #4
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 131
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 131
 
 
   26:menus.cpp     ****     screen->DrawLine(screen->Width() / 2 - 10 + 3,
@@ -7858,7 +7858,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  5532              	.L474:
   21:menus.cpp     ****     screen->DrawLine(screen->Width() / 2 - 10,
  5533              		.loc 4 21 35 view .LVU1400
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 132
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 132
 
 
  5534 115c 2046     		mov	r0, r4
@@ -7918,7 +7918,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
   16:menus.cpp     ****     screen->DrawLine(screen->Width() / 2 - 10,
  5577              		.loc 4 16 38 view .LVU1412
  5578 11a0 C0F34F0A 		ubfx	r10, r0, #1, #16
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 133
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 133
 
 
   18:menus.cpp     ****                      screen->Width() / 2 - 10,
@@ -7978,7 +7978,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
   14:menus.cpp     ****                      true);
  5620              		.loc 4 14 26 view .LVU1426
  5621 11d6 2668     		ldr	r6, [r4]
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 134
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 134
 
 
  5622 11d8 FEF724BF 		b	.L133
@@ -8020,31 +8020,31 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 1
  5659              		.file 36 "menus.h"
  5660              		.file 37 "../../libdaisy/src/dev/sr_595.h"
  5661              		.file 38 "<built-in>"
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s 			page 135
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s 			page 135
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 menus.cpp
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:17     .text._ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE4FillEb:00000000 $t
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:26     .text._ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE4FillEb:00000000 _ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE4FillEb
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:59     .text._ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE5WidthEv:00000000 $t
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:67     .text._ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE5WidthEv:00000000 _ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE5WidthEv
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:84     .text._ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6HeightEv:00000000 $t
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:92     .text._ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6HeightEv:00000000 _ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6HeightEv
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:109    .text._ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6UpdateEv:00000000 $t
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:117    .text._ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6UpdateEv:00000000 _ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6UpdateEv
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:304    .text._ZN5daisy25OneBitGraphicsDisplayImplINS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEE8DrawLineEjjjjb:00000000 $t
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:312    .text._ZN5daisy25OneBitGraphicsDisplayImplINS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEE8DrawLineEjjjjb:00000000 _ZN5daisy25OneBitGraphicsDisplayImplINS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEE8DrawLineEjjjjb
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:598    .text._ZN5daisy25OneBitGraphicsDisplayImplINS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEE8DrawRectEjjjjbb:00000000 $t
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:606    .text._ZN5daisy25OneBitGraphicsDisplayImplINS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEE8DrawRectEjjjjbb:00000000 _ZN5daisy25OneBitGraphicsDisplayImplINS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEE8DrawRectEjjjjbb
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:1708   .text._ZN5Menus12SplashScreenEPN5daisy11OledDisplayINS0_13SSD130xDriverILj128ELj64ENS0_24SSD130x4WireSpiTransportEEEEE:00000000 $t
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:1716   .text._ZN5Menus12SplashScreenEPN5daisy11OledDisplayINS0_13SSD130xDriverILj128ELj64ENS0_24SSD130x4WireSpiTransportEEEEE:00000000 _ZN5Menus12SplashScreenEPN5daisy11OledDisplayINS0_13SSD130xDriverILj128ELj64ENS0_24SSD130x4WireSpiTransportEEEEE
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:1858   .text._ZN5Menus12SplashScreenEPN5daisy11OledDisplayINS0_13SSD130xDriverILj128ELj64ENS0_24SSD130x4WireSpiTransportEEEEE:0000007c $d
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:1867   .text._ZN5Menus12SplashScreenEPN5daisy11OledDisplayINS0_13SSD130xDriverILj128ELj64ENS0_24SSD130x4WireSpiTransportEEEEE:00000088 $t
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:2587   .text._ZN5Menus12SplashScreenEPN5daisy11OledDisplayINS0_13SSD130xDriverILj128ELj64ENS0_24SSD130x4WireSpiTransportEEEEE:000003ec $d
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:2596   .text._ZN5Menus12SplashScreenEPN5daisy11OledDisplayINS0_13SSD130xDriverILj128ELj64ENS0_24SSD130x4WireSpiTransportEEEEE:000003f0 $t
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:4874   .text._ZN5Menus12SplashScreenEPN5daisy11OledDisplayINS0_13SSD130xDriverILj128ELj64ENS0_24SSD130x4WireSpiTransportEEEEE:00000d38 $d
-C:\Users\VINCIU~1\AppData\Local\Temp\cc9kCTNX.s:4883   .text._ZN5Menus12SplashScreenEPN5daisy11OledDisplayINS0_13SSD130xDriverILj128ELj64ENS0_24SSD130x4WireSpiTransportEEEEE:00000d54 $t
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:17     .text._ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE4FillEb:00000000 $t
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:26     .text._ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE4FillEb:00000000 _ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE4FillEb
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:59     .text._ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE5WidthEv:00000000 $t
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:67     .text._ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE5WidthEv:00000000 _ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE5WidthEv
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:84     .text._ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6HeightEv:00000000 $t
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:92     .text._ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6HeightEv:00000000 _ZNK5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6HeightEv
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:109    .text._ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6UpdateEv:00000000 $t
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:117    .text._ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6UpdateEv:00000000 _ZN5daisy11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEE6UpdateEv
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:304    .text._ZN5daisy25OneBitGraphicsDisplayImplINS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEE8DrawLineEjjjjb:00000000 $t
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:312    .text._ZN5daisy25OneBitGraphicsDisplayImplINS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEE8DrawLineEjjjjb:00000000 _ZN5daisy25OneBitGraphicsDisplayImplINS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEE8DrawLineEjjjjb
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:598    .text._ZN5daisy25OneBitGraphicsDisplayImplINS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEE8DrawRectEjjjjbb:00000000 $t
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:606    .text._ZN5daisy25OneBitGraphicsDisplayImplINS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEE8DrawRectEjjjjbb:00000000 _ZN5daisy25OneBitGraphicsDisplayImplINS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEE8DrawRectEjjjjbb
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:1708   .text._ZN5Menus12SplashScreenEPN5daisy11OledDisplayINS0_13SSD130xDriverILj128ELj64ENS0_24SSD130x4WireSpiTransportEEEEE:00000000 $t
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:1716   .text._ZN5Menus12SplashScreenEPN5daisy11OledDisplayINS0_13SSD130xDriverILj128ELj64ENS0_24SSD130x4WireSpiTransportEEEEE:00000000 _ZN5Menus12SplashScreenEPN5daisy11OledDisplayINS0_13SSD130xDriverILj128ELj64ENS0_24SSD130x4WireSpiTransportEEEEE
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:1858   .text._ZN5Menus12SplashScreenEPN5daisy11OledDisplayINS0_13SSD130xDriverILj128ELj64ENS0_24SSD130x4WireSpiTransportEEEEE:0000007c $d
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:1867   .text._ZN5Menus12SplashScreenEPN5daisy11OledDisplayINS0_13SSD130xDriverILj128ELj64ENS0_24SSD130x4WireSpiTransportEEEEE:00000088 $t
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:2587   .text._ZN5Menus12SplashScreenEPN5daisy11OledDisplayINS0_13SSD130xDriverILj128ELj64ENS0_24SSD130x4WireSpiTransportEEEEE:000003ec $d
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:2596   .text._ZN5Menus12SplashScreenEPN5daisy11OledDisplayINS0_13SSD130xDriverILj128ELj64ENS0_24SSD130x4WireSpiTransportEEEEE:000003f0 $t
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:4874   .text._ZN5Menus12SplashScreenEPN5daisy11OledDisplayINS0_13SSD130xDriverILj128ELj64ENS0_24SSD130x4WireSpiTransportEEEEE:00000d38 $d
+C:\Users\VINCIU~1\AppData\Local\Temp\cckxzIhN.s:4883   .text._ZN5Menus12SplashScreenEPN5daisy11OledDisplayINS0_13SSD130xDriverILj128ELj64ENS0_24SSD130x4WireSpiTransportEEEEE:00000d54 $t
 
 UNDEFINED SYMBOLS
 memset

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 1
 
 
    1              		.cpu cortex-m7
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
   27:../../libdaisy/src/dev/oled_ssd130x.h ****             i2c_config.pin_config.scl = {DSY_GPIOB, 8};
   28:../../libdaisy/src/dev/oled_ssd130x.h ****             i2c_config.pin_config.sda = {DSY_GPIOB, 9};
   29:../../libdaisy/src/dev/oled_ssd130x.h ****             i2c_address               = 0x3C;
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 2
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 2
 
 
   30:../../libdaisy/src/dev/oled_ssd130x.h ****         }
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
   84:../../libdaisy/src/dev/oled_ssd130x.h ****         dsy_gpio_init(&pin_reset_);
   85:../../libdaisy/src/dev/oled_ssd130x.h ****         // Initialize SPI
   86:../../libdaisy/src/dev/oled_ssd130x.h ****         SpiHandle::Config spi_config;
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 3
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 3
 
 
   87:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.periph    = SpiHandle::Config::Peripheral::SPI_1;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
   30              		.loc 1 140 10 view -0
   31              		.cfi_startproc
   32              		@ args = 0, pretend = 0, frame = 48
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 4
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 4
 
 
   33              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
   80:../../libdaisy/src/dev/oled_ssd130x.h ****         dsy_gpio_init(&pin_dc_);
   79              		.loc 1 80 22 view .LVU13
   80 0014 27F8081F 		strh	r1, [r7, #8]!	@ movhi
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 5
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 5
 
 
   81:../../libdaisy/src/dev/oled_ssd130x.h ****         pin_reset_.mode = DSY_GPIO_MODE_OUTPUT_PP;
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
   99:../../libdaisy/src/dev/oled_ssd130x.h **** 
  113              		.loc 1 99 9 view .LVU36
   96:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.pin_config.miso = {DSY_GPIOX, 0};
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 6
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 6
 
 
  114              		.loc 1 96 36 is_stmt 0 view .LVU37
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  105:../../libdaisy/src/dev/oled_ssd130x.h ****         dsy_gpio_write(&pin_reset_, 1);
  151              		.loc 1 105 22 is_stmt 0 view .LVU55
  152 005c 0A20     		movs	r0, #10
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 7
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 7
 
 
  153 005e FFF7FEFF 		bl	_ZN5daisy6System5DelayEm
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  194              		.loc 1 112 30 view .LVU68
  195 008a D523     		movs	r3, #213
  196              	.LBE68:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 8
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 8
 
 
  197              	.LBE66:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
  239              		.loc 1 111 23 is_stmt 0 view .LVU81
  240 00ae FFF7FEFF 		bl	dsy_gpio_write
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 9
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 9
 
 
  241              	.LVL17:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
  284              		.loc 1 111 23 view .LVU93
  285 00da 2946     		mov	r1, r5
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 10
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 10
 
 
  286 00dc 3846     		mov	r0, r7
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
  327              		.loc 1 112 30 is_stmt 0 view .LVU107
  328 0100 3246     		mov	r2, r6
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 11
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 11
 
 
  329 0102 02A9     		add	r1, sp, #8
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
  373              		.loc 1 111 23 view .LVU118
  374              	.LBE88:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 12
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 12
 
 
  375              	.LBI87:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  416              	.LVL36:
  112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
  417              		.loc 1 112 30 view .LVU132
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 13
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 13
 
 
  418 0158 4023     		movs	r3, #64
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
  461              		.loc 1 111 9 view .LVU144
  111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 14
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 14
 
 
  462              		.loc 1 111 23 is_stmt 0 view .LVU145
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  505              	.LBB102:
  506              	.LBB103:
  111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 15
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 15
 
 
  507              		.loc 1 111 23 view .LVU157
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
  549              		.loc 1 112 9 is_stmt 1 view .LVU170
  112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 16
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 16
 
 
  550              		.loc 1 112 30 is_stmt 0 view .LVU171
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  594 01fa 8DF80830 		strb	r3, [sp, #8]
  595              	.LVL55:
  111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 17
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 17
 
 
  596              		.loc 1 111 23 view .LVU182
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  637 0220 6423     		movs	r3, #100
  638 0222 2046     		mov	r0, r4
  639 0224 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 18
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 18
 
 
  640              	.LVL60:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
  683              		.loc 1 109 10 is_stmt 1 view .LVU207
  684              	.LBB122:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 19
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 19
 
 
  111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  726 0276 DB23     		movs	r3, #219
  727              	.LBE125:
  728              	.LBE123:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 20
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 20
 
 
  729              	.LBB126:
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  770              		.loc 1 111 23 is_stmt 0 view .LVU233
  771 029a FFF7FEFF 		bl	dsy_gpio_write
  772              	.LVL74:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 21
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 21
 
 
  112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  145:../../libdaisy/src/dev/oled_ssd130x.h **** 
  146:../../libdaisy/src/dev/oled_ssd130x.h ****         // Display Off
  147:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xaE);
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 22
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 22
 
 
  148:../../libdaisy/src/dev/oled_ssd130x.h ****         // Dimension dependent commands...
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  202:../../libdaisy/src/dev/oled_ssd130x.h ****                 break;
  203:../../libdaisy/src/dev/oled_ssd130x.h ****         }
  204:../../libdaisy/src/dev/oled_ssd130x.h **** 
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 23
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 23
 
 
  205:../../libdaisy/src/dev/oled_ssd130x.h ****         // Display Offset
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  838              	.LFB4034:
  839              		.file 2 "globalFunc.cpp"
    1:globalFunc.cpp **** #include "globalFunc.h"
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 24
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 24
 
 
    2:globalFunc.cpp **** 
@@ -1386,7 +1386,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
    4:globalFunc.cpp ****     daisy::DaisySeed*                                       seed,
    5:globalFunc.cpp ****     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* oledScreen,
    6:globalFunc.cpp ****     daisysp::Oscillator*                                      osc)
-   7:globalFunc.cpp **** {
+   7:globalFunc.cpp **** {    
  840              		.loc 2 7 1 is_stmt 1 view -0
  841              		.cfi_startproc
  842              		@ args = 0, pretend = 0, frame = 8
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  879              		.loc 2 13 79 is_stmt 0 view .LVU260
  880 0024 FFF7FEFF 		bl	_ZN5daisy9DaisySeed6GetPinEh
  881              	.LVL84:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 25
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 25
 
 
  882 0028 0346     		mov	r3, r0	@ movhi
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
   20:../../DaisySP/Source/Synthesis/oscillator.h ****     {
   21:../../DaisySP/Source/Synthesis/oscillator.h ****         WAVE_SIN,
   22:../../DaisySP/Source/Synthesis/oscillator.h ****         WAVE_TRI,
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 26
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 26
 
 
   23:../../DaisySP/Source/Synthesis/oscillator.h ****         WAVE_SAW,
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  919              	.LBB155:
  920              	.LBB150:
   45:../../DaisySP/Source/Synthesis/oscillator.h ****         freq_      = 100.0f;
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 27
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 27
 
 
  921              		.loc 4 45 27 view .LVU271
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  960              	.LVL91:
  961              		.loc 4 49 34 view .LVU290
  962              	.LBE151:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 28
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 28
 
 
  963              	.LBE156:
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  991 007a 84ED060A 		vstr.32	s0, [r4, #24]
   50:../../DaisySP/Source/Synthesis/oscillator.h ****         eoc_       = true;
  992              		.loc 4 50 9 is_stmt 1 view .LVU296
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 29
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 29
 
 
   51:../../DaisySP/Source/Synthesis/oscillator.h ****         eor_       = true;
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
   19:globalFunc.cpp ****     osc->SetFreq(440);
  1035              		.loc 2 19 5 is_stmt 1 view .LVU312
  1036              	.LBB174:
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 30
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 30
 
 
  1037              	.LBI157:
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  1084              		.file 19 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
  1085              		.file 20 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
  1086              		.file 21 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 31
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 31
 
 
  1087              		.file 22 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
@@ -1836,17 +1836,17 @@ ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 1
  1119              		.file 54 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
  1120              		.file 55 "../../libdaisy/src/dev/sr_595.h"
  1121              		.file 56 "<built-in>"
-ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s 			page 32
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s 			page 32
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 globalFunc.cpp
-C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s:17     .text._ZN5daisy13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEE4InitENS2_6ConfigE:00000000 $t
-C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s:26     .text._ZN5daisy13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEE4InitENS2_6ConfigE:00000000 _ZN5daisy13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEE4InitENS2_6ConfigE
-C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s:822    .text._ZN5daisy13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEE4InitENS2_6ConfigE:000002cc $d
-C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s:828    .text._Z9SynthInitPN5daisy9DaisySeedEPNS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEPN7daisysp10OscillatorE:00000000 $t
-C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s:836    .text._Z9SynthInitPN5daisy9DaisySeedEPNS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEPN7daisysp10OscillatorE:00000000 _Z9SynthInitPN5daisy9DaisySeedEPNS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEPN7daisysp10OscillatorE
-C:\Users\VINCIU~1\AppData\Local\Temp\ccAn4CbW.s:1063   .text._Z9SynthInitPN5daisy9DaisySeedEPNS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEPN7daisysp10OscillatorE:00000098 $d
+C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s:17     .text._ZN5daisy13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEE4InitENS2_6ConfigE:00000000 $t
+C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s:26     .text._ZN5daisy13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEE4InitENS2_6ConfigE:00000000 _ZN5daisy13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEE4InitENS2_6ConfigE
+C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s:822    .text._ZN5daisy13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEE4InitENS2_6ConfigE:000002cc $d
+C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s:828    .text._Z9SynthInitPN5daisy9DaisySeedEPNS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEPN7daisysp10OscillatorE:00000000 $t
+C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s:836    .text._Z9SynthInitPN5daisy9DaisySeedEPNS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEPN7daisysp10OscillatorE:00000000 _Z9SynthInitPN5daisy9DaisySeedEPNS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEPN7daisysp10OscillatorE
+C:\Users\VINCIU~1\AppData\Local\Temp\cct4Mrxs.s:1063   .text._Z9SynthInitPN5daisy9DaisySeedEPNS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEEPN7daisysp10OscillatorE:00000098 $d
 
 UNDEFINED SYMBOLS
 dsy_gpio_init

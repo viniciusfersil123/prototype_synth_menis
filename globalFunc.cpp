@@ -4,7 +4,7 @@ void SynthInit(
     daisy::DaisySeed*                                       seed,
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* oledScreen,
     daisysp::Oscillator*                                      osc)
-{
+{    
     seed->Configure();
     seed->Init();
     /** Configure the Display */

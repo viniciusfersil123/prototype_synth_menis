@@ -93,7 +93,7 @@ build/metamorphic_project.o: metamorphic_project.cpp \
  ../../libdaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h \
  ../../libdaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h \
  ../../libdaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hcd.h \
- globalFunc.h ../../libdaisy/src/daisy_seed.h ../../libdaisy/src/daisy.h \
+ ../../libdaisy/src/daisy_seed.h ../../libdaisy/src/daisy.h \
  ../../libdaisy/src/daisy_core.h ../../libdaisy/src/sys/system.h \
  ../../libdaisy/src/per/tim.h ../../libdaisy/src/per/qspi.h \
  ../../libdaisy/src/per/dac.h ../../libdaisy/src/per/gpio.h \
@@ -130,9 +130,8 @@ build/metamorphic_project.o: metamorphic_project.cpp \
  ../../libdaisy/Middlewares/Third_Party/FatFs/src/diskio.h \
  ../../libdaisy/Middlewares/Third_Party/FatFs/src/ff.h \
  ../../libdaisy/src/util/sd_diskio.h ../../libdaisy/src/util/WavWriter.h \
- ../../libdaisy/src/dev/oled_ssd130x.h ../../DaisySP/Source/daisysp.h \
- ../../DaisySP/Source/Control/adenv.h ../../DaisySP/Source/Control/adsr.h \
- ../../DaisySP/Source/Control/line.h \
+ ../../DaisySP/Source/daisysp.h ../../DaisySP/Source/Control/adenv.h \
+ ../../DaisySP/Source/Control/adsr.h ../../DaisySP/Source/Control/line.h \
  ../../DaisySP/Source/Control/phasor.h \
  ../../DaisySP/Source/Drums/analogbassdrum.h \
  ../../DaisySP/Source/Synthesis/oscillator.h \
@@ -192,7 +191,8 @@ build/metamorphic_project.o: metamorphic_project.cpp \
  ../../DaisySP/Source/Utility/maytrig.h \
  ../../DaisySP/Source/Utility/metro.h ../../DaisySP/Source/Utility/port.h \
  ../../DaisySP/Source/Utility/samplehold.h \
- ../../DaisySP/Source/Utility/smooth_random.h menus.h
+ ../../DaisySP/Source/Utility/smooth_random.h \
+ ../../libdaisy/src/dev/oled_ssd130x.h globalFunc.h menus.h
 ../../libdaisy/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:
 ../../libdaisy/Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h750xx.h:
 ../../libdaisy/Drivers/CMSIS/Include/core_cm7.h:
@@ -287,7 +287,6 @@ build/metamorphic_project.o: metamorphic_project.cpp \
 ../../libdaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_usb.h:
 ../../libdaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd_ex.h:
 ../../libdaisy/Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hcd.h:
-globalFunc.h:
 ../../libdaisy/src/daisy_seed.h:
 ../../libdaisy/src/daisy.h:
 ../../libdaisy/src/daisy_core.h:
@@ -347,7 +346,6 @@ globalFunc.h:
 ../../libdaisy/Middlewares/Third_Party/FatFs/src/ff.h:
 ../../libdaisy/src/util/sd_diskio.h:
 ../../libdaisy/src/util/WavWriter.h:
-../../libdaisy/src/dev/oled_ssd130x.h:
 ../../DaisySP/Source/daisysp.h:
 ../../DaisySP/Source/Control/adenv.h:
 ../../DaisySP/Source/Control/adsr.h:
@@ -416,4 +414,6 @@ globalFunc.h:
 ../../DaisySP/Source/Utility/port.h:
 ../../DaisySP/Source/Utility/samplehold.h:
 ../../DaisySP/Source/Utility/smooth_random.h:
+../../libdaisy/src/dev/oled_ssd130x.h:
+globalFunc.h:
 menus.h:

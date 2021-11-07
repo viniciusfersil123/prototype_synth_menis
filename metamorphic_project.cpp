@@ -11,24 +11,29 @@ using namespace daisy;
 using namespace daisysp;
 using SynthOled = OledDisplay<SSD130x4WireSpi128x64Driver>;
 //VARIABLES
-DaisySeed hw;
-SynthOled display;
-Menus     synthMenus;
+DaisySeed  hw;
+SynthOled  display;
+Menus      synthMenus;
+Oscillator osc;
+
 
 void AudioCallback(AudioHandle::InputBuffer  in,
                    AudioHandle::OutputBuffer out,
                    size_t                    size)
 {
+    float osc_out;
     for(size_t i = 0; i < size; i++)
     {
-        out[0][i] = in[0][i];
-        out[1][i] = in[1][i];
+        osc_out = osc.Process();
+        out[0][i] = osc_out;
+        out[1][i] = osc_out ;
     }
 }
 
 int main(void)
 {
-    hardwareInit(&hw, &display);
+    SynthInit(&hw, &display, &osc);
+    hw.StartAudio(AudioCallback);
     while(1)
     {
         synthMenus.SplashScreen(&display);

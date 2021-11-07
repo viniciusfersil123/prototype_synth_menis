@@ -1,0 +1,1562 @@
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.eabi_attribute 28, 1
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 2
+  10              		.eabi_attribute 34, 1
+  11              		.eabi_attribute 18, 4
+  12              		.file	"globalFunc.cpp"
+  13              		.text
+  14              	.Ltext0:
+  15              		.cfi_sections	.debug_frame
+  16              		.section	.text._ZN5daisy13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEE4InitENS2_6Confi
+  17              		.align	1
+  18              		.p2align 2,,3
+  19              		.weak	_ZN5daisy13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEE4InitENS2_6ConfigE
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv5-d16
+  26              	_ZN5daisy13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEE4InitENS2_6ConfigE:
+  27              	.LVL0:
+  28              	.LFB1814:
+  29              		.file 1 "../../libdaisy/src/dev/oled_ssd130x.h"
+   1:../../libdaisy/src/dev/oled_ssd130x.h **** #pragma once
+   2:../../libdaisy/src/dev/oled_ssd130x.h **** #ifndef SA_OLED_SSD130X_H
+   3:../../libdaisy/src/dev/oled_ssd130x.h **** #define SA_OLED_SSD130X_H /**< & */
+   4:../../libdaisy/src/dev/oled_ssd130x.h **** 
+   5:../../libdaisy/src/dev/oled_ssd130x.h **** #include "per/i2c.h"
+   6:../../libdaisy/src/dev/oled_ssd130x.h **** #include "per/spi.h"
+   7:../../libdaisy/src/dev/oled_ssd130x.h **** #include "per/gpio.h"
+   8:../../libdaisy/src/dev/oled_ssd130x.h **** #include "sys/system.h"
+   9:../../libdaisy/src/dev/oled_ssd130x.h **** 
+  10:../../libdaisy/src/dev/oled_ssd130x.h **** namespace daisy
+  11:../../libdaisy/src/dev/oled_ssd130x.h **** {
+  12:../../libdaisy/src/dev/oled_ssd130x.h **** /**
+  13:../../libdaisy/src/dev/oled_ssd130x.h ****  * I2C Transport for SSD1306 / SSD1309 OLED display devices
+  14:../../libdaisy/src/dev/oled_ssd130x.h ****  */
+  15:../../libdaisy/src/dev/oled_ssd130x.h **** class SSD130xI2CTransport
+  16:../../libdaisy/src/dev/oled_ssd130x.h **** {
+  17:../../libdaisy/src/dev/oled_ssd130x.h ****   public:
+  18:../../libdaisy/src/dev/oled_ssd130x.h ****     struct Config
+  19:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+  20:../../libdaisy/src/dev/oled_ssd130x.h ****         I2CHandle::Config i2c_config;
+  21:../../libdaisy/src/dev/oled_ssd130x.h ****         uint8_t           i2c_address;
+  22:../../libdaisy/src/dev/oled_ssd130x.h ****         void              Defaults()
+  23:../../libdaisy/src/dev/oled_ssd130x.h ****         {
+  24:../../libdaisy/src/dev/oled_ssd130x.h ****             i2c_config.periph         = I2CHandle::Config::Peripheral::I2C_1;
+  25:../../libdaisy/src/dev/oled_ssd130x.h ****             i2c_config.speed          = I2CHandle::Config::Speed::I2C_1MHZ;
+  26:../../libdaisy/src/dev/oled_ssd130x.h ****             i2c_config.mode           = I2CHandle::Config::Mode::I2C_MASTER;
+  27:../../libdaisy/src/dev/oled_ssd130x.h ****             i2c_config.pin_config.scl = {DSY_GPIOB, 8};
+  28:../../libdaisy/src/dev/oled_ssd130x.h ****             i2c_config.pin_config.sda = {DSY_GPIOB, 9};
+  29:../../libdaisy/src/dev/oled_ssd130x.h ****             i2c_address               = 0x3C;
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 2
+
+
+  30:../../libdaisy/src/dev/oled_ssd130x.h ****         }
+  31:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+  32:../../libdaisy/src/dev/oled_ssd130x.h ****     void Init(const Config& config)
+  33:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+  34:../../libdaisy/src/dev/oled_ssd130x.h ****         i2c_address_ = config.i2c_address;
+  35:../../libdaisy/src/dev/oled_ssd130x.h ****         i2c_.Init(config.i2c_config);
+  36:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+  37:../../libdaisy/src/dev/oled_ssd130x.h ****     void SendCommand(uint8_t cmd)
+  38:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+  39:../../libdaisy/src/dev/oled_ssd130x.h ****         uint8_t buf[2] = {0X00, cmd};
+  40:../../libdaisy/src/dev/oled_ssd130x.h ****         i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+  41:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+  42:../../libdaisy/src/dev/oled_ssd130x.h **** 
+  43:../../libdaisy/src/dev/oled_ssd130x.h ****     void SendData(uint8_t* buff, size_t size)
+  44:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+  45:../../libdaisy/src/dev/oled_ssd130x.h ****         for(size_t i = 0; i < size; i++)
+  46:../../libdaisy/src/dev/oled_ssd130x.h ****         {
+  47:../../libdaisy/src/dev/oled_ssd130x.h ****             uint8_t buf[2] = {0X40, buff[i]};
+  48:../../libdaisy/src/dev/oled_ssd130x.h ****             i2c_.TransmitBlocking(i2c_address_, buf, 2, 1000);
+  49:../../libdaisy/src/dev/oled_ssd130x.h ****         }
+  50:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+  51:../../libdaisy/src/dev/oled_ssd130x.h **** 
+  52:../../libdaisy/src/dev/oled_ssd130x.h ****   private:
+  53:../../libdaisy/src/dev/oled_ssd130x.h ****     daisy::I2CHandle i2c_;
+  54:../../libdaisy/src/dev/oled_ssd130x.h ****     uint8_t          i2c_address_;
+  55:../../libdaisy/src/dev/oled_ssd130x.h **** };
+  56:../../libdaisy/src/dev/oled_ssd130x.h **** 
+  57:../../libdaisy/src/dev/oled_ssd130x.h **** /**
+  58:../../libdaisy/src/dev/oled_ssd130x.h ****  * 4 Wire SPI Transport for SSD1306 / SSD1309 OLED display devices
+  59:../../libdaisy/src/dev/oled_ssd130x.h ****  */
+  60:../../libdaisy/src/dev/oled_ssd130x.h **** class SSD130x4WireSpiTransport
+  61:../../libdaisy/src/dev/oled_ssd130x.h **** {
+  62:../../libdaisy/src/dev/oled_ssd130x.h ****   public:
+  63:../../libdaisy/src/dev/oled_ssd130x.h ****     struct Config
+  64:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+  65:../../libdaisy/src/dev/oled_ssd130x.h ****         struct
+  66:../../libdaisy/src/dev/oled_ssd130x.h ****         {
+  67:../../libdaisy/src/dev/oled_ssd130x.h ****             dsy_gpio_pin dc;    /**< & */
+  68:../../libdaisy/src/dev/oled_ssd130x.h ****             dsy_gpio_pin reset; /**< & */
+  69:../../libdaisy/src/dev/oled_ssd130x.h ****         } pin_config;
+  70:../../libdaisy/src/dev/oled_ssd130x.h ****         void Defaults()
+  71:../../libdaisy/src/dev/oled_ssd130x.h ****         {
+  72:../../libdaisy/src/dev/oled_ssd130x.h ****             pin_config.dc    = {DSY_GPIOB, 4};
+  73:../../libdaisy/src/dev/oled_ssd130x.h ****             pin_config.reset = {DSY_GPIOB, 15};
+  74:../../libdaisy/src/dev/oled_ssd130x.h ****         }
+  75:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+  76:../../libdaisy/src/dev/oled_ssd130x.h ****     void Init(const Config& config)
+  77:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+  78:../../libdaisy/src/dev/oled_ssd130x.h ****         // Initialize both GPIO
+  79:../../libdaisy/src/dev/oled_ssd130x.h ****         pin_dc_.mode = DSY_GPIO_MODE_OUTPUT_PP;
+  80:../../libdaisy/src/dev/oled_ssd130x.h ****         pin_dc_.pin  = config.pin_config.dc;
+  81:../../libdaisy/src/dev/oled_ssd130x.h ****         dsy_gpio_init(&pin_dc_);
+  82:../../libdaisy/src/dev/oled_ssd130x.h ****         pin_reset_.mode = DSY_GPIO_MODE_OUTPUT_PP;
+  83:../../libdaisy/src/dev/oled_ssd130x.h ****         pin_reset_.pin  = config.pin_config.reset;
+  84:../../libdaisy/src/dev/oled_ssd130x.h ****         dsy_gpio_init(&pin_reset_);
+  85:../../libdaisy/src/dev/oled_ssd130x.h ****         // Initialize SPI
+  86:../../libdaisy/src/dev/oled_ssd130x.h ****         SpiHandle::Config spi_config;
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 3
+
+
+  87:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.periph    = SpiHandle::Config::Peripheral::SPI_1;
+  88:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.mode      = SpiHandle::Config::Mode::MASTER;
+  89:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.direction = SpiHandle::Config::Direction::TWO_LINES_TX_ONLY;
+  90:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.datasize  = 8;
+  91:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.clock_polarity = SpiHandle::Config::ClockPolarity::LOW;
+  92:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.clock_phase    = SpiHandle::Config::ClockPhase::ONE_EDGE;
+  93:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.nss            = SpiHandle::Config::NSS::HARD_OUTPUT;
+  94:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.baud_prescaler = SpiHandle::Config::BaudPrescaler::PS_8;
+  95:../../libdaisy/src/dev/oled_ssd130x.h **** 
+  96:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.pin_config.sclk = {DSY_GPIOG, 11};
+  97:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.pin_config.miso = {DSY_GPIOX, 0};
+  98:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.pin_config.mosi = {DSY_GPIOB, 5};
+  99:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.pin_config.nss  = {DSY_GPIOG, 10};
+ 100:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 101:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.Init(spi_config);
+ 102:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 103:../../libdaisy/src/dev/oled_ssd130x.h ****         // Reset and Configure OLED.
+ 104:../../libdaisy/src/dev/oled_ssd130x.h ****         dsy_gpio_write(&pin_reset_, 0);
+ 105:../../libdaisy/src/dev/oled_ssd130x.h ****         System::Delay(10);
+ 106:../../libdaisy/src/dev/oled_ssd130x.h ****         dsy_gpio_write(&pin_reset_, 1);
+ 107:../../libdaisy/src/dev/oled_ssd130x.h ****         System::Delay(10);
+ 108:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     void SendCommand(uint8_t cmd)
+ 110:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         dsy_gpio_write(&pin_dc_, 0);
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 113:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 114:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 115:../../libdaisy/src/dev/oled_ssd130x.h ****     void SendData(uint8_t* buff, size_t size)
+ 116:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 117:../../libdaisy/src/dev/oled_ssd130x.h ****         dsy_gpio_write(&pin_dc_, 1);
+ 118:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(buff, size);
+ 119:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 120:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 121:../../libdaisy/src/dev/oled_ssd130x.h ****   private:
+ 122:../../libdaisy/src/dev/oled_ssd130x.h ****     SpiHandle spi_;
+ 123:../../libdaisy/src/dev/oled_ssd130x.h ****     dsy_gpio  pin_reset_;
+ 124:../../libdaisy/src/dev/oled_ssd130x.h ****     dsy_gpio  pin_dc_;
+ 125:../../libdaisy/src/dev/oled_ssd130x.h **** };
+ 126:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 127:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 128:../../libdaisy/src/dev/oled_ssd130x.h **** /**
+ 129:../../libdaisy/src/dev/oled_ssd130x.h ****  * A driver implementation for the SSD1306/SSD1309
+ 130:../../libdaisy/src/dev/oled_ssd130x.h ****  */
+ 131:../../libdaisy/src/dev/oled_ssd130x.h **** template <size_t width, size_t height, typename Transport>
+ 132:../../libdaisy/src/dev/oled_ssd130x.h **** class SSD130xDriver
+ 133:../../libdaisy/src/dev/oled_ssd130x.h **** {
+ 134:../../libdaisy/src/dev/oled_ssd130x.h ****   public:
+ 135:../../libdaisy/src/dev/oled_ssd130x.h ****     struct Config
+ 136:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 137:../../libdaisy/src/dev/oled_ssd130x.h ****         typename Transport::Config transport_config;
+ 138:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 139:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 140:../../libdaisy/src/dev/oled_ssd130x.h ****     void Init(Config config)
+  30              		.loc 1 140 10 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 48
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 4
+
+
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 140 10 is_stmt 0 view .LVU1
+  35 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+  36              		.cfi_def_cfa_offset 24
+  37              		.cfi_offset 4, -24
+  38              		.cfi_offset 5, -20
+  39              		.cfi_offset 6, -16
+  40              		.cfi_offset 7, -12
+  41              		.cfi_offset 8, -8
+  42              		.cfi_offset 14, -4
+  43              	.LBB52:
+  44              	.LBB53:
+  79:../../libdaisy/src/dev/oled_ssd130x.h ****         pin_dc_.pin  = config.pin_config.dc;
+  45              		.loc 1 79 22 view .LVU2
+  46 0004 0126     		movs	r6, #1
+  47              	.LBE53:
+  48              	.LBE52:
+  49              		.loc 1 140 10 view .LVU3
+  50 0006 8CB0     		sub	sp, sp, #48
+  51              		.cfi_def_cfa_offset 72
+  52              	.LBB57:
+  53              	.LBB54:
+  80:../../libdaisy/src/dev/oled_ssd130x.h ****         dsy_gpio_init(&pin_dc_);
+  54              		.loc 1 80 22 view .LVU4
+  55 0008 0746     		mov	r7, r0
+  56              	.LBE54:
+  57              	.LBE57:
+  58              		.loc 1 140 10 view .LVU5
+  59 000a 0446     		mov	r4, r0
+  60              	.LVL1:
+  61              	.LBB58:
+  62              	.LBI52:
+  76:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+  63              		.loc 1 76 10 is_stmt 1 view .LVU6
+  64              	.LBB55:
+  79:../../libdaisy/src/dev/oled_ssd130x.h ****         pin_dc_.pin  = config.pin_config.dc;
+  65              		.loc 1 79 9 view .LVU7
+  83:../../libdaisy/src/dev/oled_ssd130x.h ****         dsy_gpio_init(&pin_reset_);
+  66              		.loc 1 83 25 is_stmt 0 view .LVU8
+  67 000c 8046     		mov	r8, r0
+  68              	.LBE55:
+  69              	.LBE58:
+  70              		.loc 1 140 10 view .LVU9
+  71 000e 0191     		str	r1, [sp, #4]
+  72              	.LBB59:
+  73              	.LBB56:
+  79:../../libdaisy/src/dev/oled_ssd130x.h ****         pin_dc_.pin  = config.pin_config.dc;
+  74              		.loc 1 79 22 view .LVU10
+  75 0010 8672     		strb	r6, [r0, #10]
+  80:../../libdaisy/src/dev/oled_ssd130x.h ****         dsy_gpio_init(&pin_dc_);
+  76              		.loc 1 80 9 is_stmt 1 view .LVU11
+  87:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.mode      = SpiHandle::Config::Mode::MASTER;
+  77              		.loc 1 87 30 is_stmt 0 view .LVU12
+  78 0012 0025     		movs	r5, #0
+  80:../../libdaisy/src/dev/oled_ssd130x.h ****         dsy_gpio_init(&pin_dc_);
+  79              		.loc 1 80 22 view .LVU13
+  80 0014 27F8081F 		strh	r1, [r7, #8]!	@ movhi
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 5
+
+
+  81:../../libdaisy/src/dev/oled_ssd130x.h ****         pin_reset_.mode = DSY_GPIO_MODE_OUTPUT_PP;
+  81              		.loc 1 81 9 is_stmt 1 view .LVU14
+  81:../../libdaisy/src/dev/oled_ssd130x.h ****         pin_reset_.mode = DSY_GPIO_MODE_OUTPUT_PP;
+  82              		.loc 1 81 22 is_stmt 0 view .LVU15
+  83 0018 3846     		mov	r0, r7
+  84              	.LVL2:
+  81:../../libdaisy/src/dev/oled_ssd130x.h ****         pin_reset_.mode = DSY_GPIO_MODE_OUTPUT_PP;
+  85              		.loc 1 81 22 view .LVU16
+  86 001a FFF7FEFF 		bl	dsy_gpio_init
+  87              	.LVL3:
+  82:../../libdaisy/src/dev/oled_ssd130x.h ****         pin_reset_.pin  = config.pin_config.reset;
+  88              		.loc 1 82 9 is_stmt 1 view .LVU17
+  83:../../libdaisy/src/dev/oled_ssd130x.h ****         dsy_gpio_init(&pin_reset_);
+  89              		.loc 1 83 25 is_stmt 0 view .LVU18
+  90 001e BDF80630 		ldrh	r3, [sp, #6]
+  82:../../libdaisy/src/dev/oled_ssd130x.h ****         pin_reset_.pin  = config.pin_config.reset;
+  91              		.loc 1 82 25 view .LVU19
+  92 0022 A671     		strb	r6, [r4, #6]
+  83:../../libdaisy/src/dev/oled_ssd130x.h ****         dsy_gpio_init(&pin_reset_);
+  93              		.loc 1 83 9 is_stmt 1 view .LVU20
+  83:../../libdaisy/src/dev/oled_ssd130x.h ****         dsy_gpio_init(&pin_reset_);
+  94              		.loc 1 83 25 is_stmt 0 view .LVU21
+  95 0024 28F8043F 		strh	r3, [r8, #4]!	@ movhi
+  84:../../libdaisy/src/dev/oled_ssd130x.h ****         // Initialize SPI
+  96              		.loc 1 84 9 is_stmt 1 view .LVU22
+  84:../../libdaisy/src/dev/oled_ssd130x.h ****         // Initialize SPI
+  97              		.loc 1 84 22 is_stmt 0 view .LVU23
+  98 0028 4046     		mov	r0, r8
+  99 002a FFF7FEFF 		bl	dsy_gpio_init
+ 100              	.LVL4:
+  86:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.periph    = SpiHandle::Config::Peripheral::SPI_1;
+ 101              		.loc 1 86 9 is_stmt 1 view .LVU24
+  87:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.mode      = SpiHandle::Config::Mode::MASTER;
+ 102              		.loc 1 87 9 view .LVU25
+  88:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.direction = SpiHandle::Config::Direction::TWO_LINES_TX_ONLY;
+ 103              		.loc 1 88 9 view .LVU26
+  89:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.datasize  = 8;
+ 104              		.loc 1 89 9 view .LVU27
+  90:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.clock_polarity = SpiHandle::Config::ClockPolarity::LOW;
+ 105              		.loc 1 90 9 view .LVU28
+  91:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.clock_phase    = SpiHandle::Config::ClockPhase::ONE_EDGE;
+ 106              		.loc 1 91 9 view .LVU29
+  92:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.nss            = SpiHandle::Config::NSS::HARD_OUTPUT;
+ 107              		.loc 1 92 9 view .LVU30
+  93:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.baud_prescaler = SpiHandle::Config::BaudPrescaler::PS_8;
+ 108              		.loc 1 93 9 view .LVU31
+  94:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 109              		.loc 1 94 9 view .LVU32
+  96:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.pin_config.miso = {DSY_GPIOX, 0};
+ 110              		.loc 1 96 9 view .LVU33
+  97:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.pin_config.mosi = {DSY_GPIOB, 5};
+ 111              		.loc 1 97 9 view .LVU34
+  98:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.pin_config.nss  = {DSY_GPIOG, 10};
+ 112              		.loc 1 98 9 view .LVU35
+  99:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 113              		.loc 1 99 9 view .LVU36
+  96:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.pin_config.miso = {DSY_GPIOX, 0};
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 6
+
+
+ 114              		.loc 1 96 36 is_stmt 0 view .LVU37
+ 115 002e A74B     		ldr	r3, .L4
+ 101:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 116              		.loc 1 101 18 view .LVU38
+ 117 0030 2046     		mov	r0, r4
+  89:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.datasize  = 8;
+ 118              		.loc 1 89 30 view .LVU39
+ 119 0032 0696     		str	r6, [sp, #24]
+  96:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.pin_config.miso = {DSY_GPIOX, 0};
+ 120              		.loc 1 96 36 view .LVU40
+ 121 0034 0293     		str	r3, [sp, #8]
+  87:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.mode      = SpiHandle::Config::Mode::MASTER;
+ 122              		.loc 1 87 30 view .LVU41
+ 123 0036 A64B     		ldr	r3, .L4+4
+  88:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.direction = SpiHandle::Config::Direction::TWO_LINES_TX_ONLY;
+ 124              		.loc 1 88 30 view .LVU42
+ 125 0038 0595     		str	r5, [sp, #20]
+  87:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.mode      = SpiHandle::Config::Mode::MASTER;
+ 126              		.loc 1 87 30 view .LVU43
+ 127 003a CDE90335 		strd	r3, r5, [sp, #12]
+  93:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.baud_prescaler = SpiHandle::Config::BaudPrescaler::PS_8;
+ 128              		.loc 1 93 35 view .LVU44
+ 129 003e 0223     		movs	r3, #2
+  94:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 130              		.loc 1 94 35 view .LVU45
+ 131 0040 CDE90A33 		strd	r3, r3, [sp, #40]
+ 101:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 132              		.loc 1 101 9 is_stmt 1 view .LVU46
+  90:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.clock_polarity = SpiHandle::Config::ClockPolarity::LOW;
+ 133              		.loc 1 90 30 is_stmt 0 view .LVU47
+ 134 0044 0823     		movs	r3, #8
+ 101:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 135              		.loc 1 101 18 view .LVU48
+ 136 0046 0DEB0301 		add	r1, sp, r3
+  90:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.clock_polarity = SpiHandle::Config::ClockPolarity::LOW;
+ 137              		.loc 1 90 30 view .LVU49
+ 138 004a 0793     		str	r3, [sp, #28]
+  92:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_config.nss            = SpiHandle::Config::NSS::HARD_OUTPUT;
+ 139              		.loc 1 92 35 view .LVU50
+ 140 004c CDE90855 		strd	r5, r5, [sp, #32]
+ 101:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 141              		.loc 1 101 18 view .LVU51
+ 142 0050 FFF7FEFF 		bl	_ZN5daisy9SpiHandle4InitERKNS0_6ConfigE
+ 143              	.LVL5:
+ 104:../../libdaisy/src/dev/oled_ssd130x.h ****         System::Delay(10);
+ 144              		.loc 1 104 9 is_stmt 1 view .LVU52
+ 104:../../libdaisy/src/dev/oled_ssd130x.h ****         System::Delay(10);
+ 145              		.loc 1 104 23 is_stmt 0 view .LVU53
+ 146 0054 2946     		mov	r1, r5
+ 147 0056 4046     		mov	r0, r8
+ 148 0058 FFF7FEFF 		bl	dsy_gpio_write
+ 149              	.LVL6:
+ 105:../../libdaisy/src/dev/oled_ssd130x.h ****         dsy_gpio_write(&pin_reset_, 1);
+ 150              		.loc 1 105 9 is_stmt 1 view .LVU54
+ 105:../../libdaisy/src/dev/oled_ssd130x.h ****         dsy_gpio_write(&pin_reset_, 1);
+ 151              		.loc 1 105 22 is_stmt 0 view .LVU55
+ 152 005c 0A20     		movs	r0, #10
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 7
+
+
+ 153 005e FFF7FEFF 		bl	_ZN5daisy6System5DelayEm
+ 154              	.LVL7:
+ 106:../../libdaisy/src/dev/oled_ssd130x.h ****         System::Delay(10);
+ 155              		.loc 1 106 9 is_stmt 1 view .LVU56
+ 106:../../libdaisy/src/dev/oled_ssd130x.h ****         System::Delay(10);
+ 156              		.loc 1 106 23 is_stmt 0 view .LVU57
+ 157 0062 3146     		mov	r1, r6
+ 158 0064 4046     		mov	r0, r8
+ 159 0066 FFF7FEFF 		bl	dsy_gpio_write
+ 160              	.LVL8:
+ 107:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 161              		.loc 1 107 9 is_stmt 1 view .LVU58
+ 107:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 162              		.loc 1 107 22 is_stmt 0 view .LVU59
+ 163 006a 0A20     		movs	r0, #10
+ 164 006c FFF7FEFF 		bl	_ZN5daisy6System5DelayEm
+ 165              	.LVL9:
+ 107:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 166              		.loc 1 107 22 view .LVU60
+ 167 0070 AE23     		movs	r3, #174
+ 168              	.LBE56:
+ 169              	.LBE59:
+ 170              	.LBB60:
+ 171              	.LBB61:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 172              		.loc 1 111 23 view .LVU61
+ 173 0072 2946     		mov	r1, r5
+ 174 0074 3846     		mov	r0, r7
+ 175 0076 8DF80830 		strb	r3, [sp, #8]
+ 176              	.LVL10:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 177              		.loc 1 111 23 view .LVU62
+ 178              	.LBE61:
+ 179              	.LBI60:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 180              		.loc 1 109 10 is_stmt 1 view .LVU63
+ 181              	.LBB62:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 182              		.loc 1 111 9 view .LVU64
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 183              		.loc 1 111 23 is_stmt 0 view .LVU65
+ 184 007a FFF7FEFF 		bl	dsy_gpio_write
+ 185              	.LVL11:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 186              		.loc 1 112 9 is_stmt 1 view .LVU66
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 187              		.loc 1 112 30 is_stmt 0 view .LVU67
+ 188 007e 3246     		mov	r2, r6
+ 189 0080 02A9     		add	r1, sp, #8
+ 190 0082 6423     		movs	r3, #100
+ 191 0084 2046     		mov	r0, r4
+ 192 0086 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 193              	.LVL12:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 194              		.loc 1 112 30 view .LVU68
+ 195 008a D523     		movs	r3, #213
+ 196              	.LBE62:
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 8
+
+
+ 197              	.LBE60:
+ 198              	.LBB63:
+ 199              	.LBB64:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 200              		.loc 1 111 23 view .LVU69
+ 201 008c 2946     		mov	r1, r5
+ 202 008e 3846     		mov	r0, r7
+ 203 0090 8DF80830 		strb	r3, [sp, #8]
+ 204              	.LVL13:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 205              		.loc 1 111 23 view .LVU70
+ 206              	.LBE64:
+ 207              	.LBI63:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 208              		.loc 1 109 10 is_stmt 1 view .LVU71
+ 209              	.LBB65:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 210              		.loc 1 111 9 view .LVU72
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 211              		.loc 1 111 23 is_stmt 0 view .LVU73
+ 212 0094 FFF7FEFF 		bl	dsy_gpio_write
+ 213              	.LVL14:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 214              		.loc 1 112 9 is_stmt 1 view .LVU74
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 215              		.loc 1 112 30 is_stmt 0 view .LVU75
+ 216 0098 3246     		mov	r2, r6
+ 217 009a 02A9     		add	r1, sp, #8
+ 218 009c 6423     		movs	r3, #100
+ 219 009e 2046     		mov	r0, r4
+ 220 00a0 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 221              	.LVL15:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 222              		.loc 1 112 30 view .LVU76
+ 223 00a4 8023     		movs	r3, #128
+ 224              	.LBE65:
+ 225              	.LBE63:
+ 226              	.LBB66:
+ 227              	.LBB67:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 228              		.loc 1 111 23 view .LVU77
+ 229 00a6 2946     		mov	r1, r5
+ 230 00a8 3846     		mov	r0, r7
+ 231 00aa 8DF80830 		strb	r3, [sp, #8]
+ 232              	.LVL16:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 233              		.loc 1 111 23 view .LVU78
+ 234              	.LBE67:
+ 235              	.LBI66:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 236              		.loc 1 109 10 is_stmt 1 view .LVU79
+ 237              	.LBB68:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 238              		.loc 1 111 9 view .LVU80
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 239              		.loc 1 111 23 is_stmt 0 view .LVU81
+ 240 00ae FFF7FEFF 		bl	dsy_gpio_write
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 9
+
+
+ 241              	.LVL17:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 242              		.loc 1 112 9 is_stmt 1 view .LVU82
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 243              		.loc 1 112 30 is_stmt 0 view .LVU83
+ 244 00b2 3246     		mov	r2, r6
+ 245 00b4 02A9     		add	r1, sp, #8
+ 246 00b6 6423     		movs	r3, #100
+ 247 00b8 2046     		mov	r0, r4
+ 248 00ba FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 249              	.LVL18:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 250              		.loc 1 112 30 view .LVU84
+ 251 00be A823     		movs	r3, #168
+ 252              	.LBE68:
+ 253              	.LBE66:
+ 254              	.LBB69:
+ 255              	.LBB70:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 256              		.loc 1 111 23 view .LVU85
+ 257 00c0 2946     		mov	r1, r5
+ 258 00c2 3846     		mov	r0, r7
+ 259 00c4 8DF80830 		strb	r3, [sp, #8]
+ 260              	.LVL19:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 261              		.loc 1 111 23 view .LVU86
+ 262              	.LBE70:
+ 263              	.LBI69:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 264              		.loc 1 109 10 is_stmt 1 view .LVU87
+ 265              	.LBB71:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 266              		.loc 1 111 9 view .LVU88
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 267              		.loc 1 111 23 is_stmt 0 view .LVU89
+ 268 00c8 FFF7FEFF 		bl	dsy_gpio_write
+ 269              	.LVL20:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 270              		.loc 1 112 9 is_stmt 1 view .LVU90
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 271              		.loc 1 112 30 is_stmt 0 view .LVU91
+ 272 00cc 3246     		mov	r2, r6
+ 273 00ce 02A9     		add	r1, sp, #8
+ 274 00d0 6423     		movs	r3, #100
+ 275 00d2 2046     		mov	r0, r4
+ 276 00d4 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 277              	.LVL21:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 278              		.loc 1 112 30 view .LVU92
+ 279 00d8 3F23     		movs	r3, #63
+ 280              	.LBE71:
+ 281              	.LBE69:
+ 282              	.LBB72:
+ 283              	.LBB73:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 284              		.loc 1 111 23 view .LVU93
+ 285 00da 2946     		mov	r1, r5
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 10
+
+
+ 286 00dc 3846     		mov	r0, r7
+ 287 00de 8DF80830 		strb	r3, [sp, #8]
+ 288              	.LVL22:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 289              		.loc 1 111 23 view .LVU94
+ 290              	.LBE73:
+ 291              	.LBI72:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 292              		.loc 1 109 10 is_stmt 1 view .LVU95
+ 293              	.LBB74:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 294              		.loc 1 111 9 view .LVU96
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 295              		.loc 1 111 23 is_stmt 0 view .LVU97
+ 296 00e2 FFF7FEFF 		bl	dsy_gpio_write
+ 297              	.LVL23:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 298              		.loc 1 112 9 is_stmt 1 view .LVU98
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 299              		.loc 1 112 30 is_stmt 0 view .LVU99
+ 300 00e6 3246     		mov	r2, r6
+ 301 00e8 02A9     		add	r1, sp, #8
+ 302 00ea 6423     		movs	r3, #100
+ 303 00ec 2046     		mov	r0, r4
+ 304 00ee FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 305              	.LVL24:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 306              		.loc 1 112 30 view .LVU100
+ 307 00f2 DA23     		movs	r3, #218
+ 308              	.LBE74:
+ 309              	.LBE72:
+ 310              	.LBB75:
+ 311              	.LBB76:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 312              		.loc 1 111 23 view .LVU101
+ 313 00f4 2946     		mov	r1, r5
+ 314 00f6 3846     		mov	r0, r7
+ 315 00f8 8DF80830 		strb	r3, [sp, #8]
+ 316              	.LVL25:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 317              		.loc 1 111 23 view .LVU102
+ 318              	.LBE76:
+ 319              	.LBI75:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 320              		.loc 1 109 10 is_stmt 1 view .LVU103
+ 321              	.LBB77:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 322              		.loc 1 111 9 view .LVU104
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 323              		.loc 1 111 23 is_stmt 0 view .LVU105
+ 324 00fc FFF7FEFF 		bl	dsy_gpio_write
+ 325              	.LVL26:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 326              		.loc 1 112 9 is_stmt 1 view .LVU106
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 327              		.loc 1 112 30 is_stmt 0 view .LVU107
+ 328 0100 3246     		mov	r2, r6
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 11
+
+
+ 329 0102 02A9     		add	r1, sp, #8
+ 330 0104 6423     		movs	r3, #100
+ 331 0106 2046     		mov	r0, r4
+ 332 0108 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 333              	.LVL27:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 334              		.loc 1 112 30 view .LVU108
+ 335 010c 1223     		movs	r3, #18
+ 336              	.LBE77:
+ 337              	.LBE75:
+ 338              	.LBB78:
+ 339              	.LBB79:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 340              		.loc 1 111 23 view .LVU109
+ 341 010e 2946     		mov	r1, r5
+ 342 0110 3846     		mov	r0, r7
+ 343 0112 8DF80830 		strb	r3, [sp, #8]
+ 344              	.LVL28:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 345              		.loc 1 111 23 view .LVU110
+ 346              	.LBE79:
+ 347              	.LBI78:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 348              		.loc 1 109 10 is_stmt 1 view .LVU111
+ 349              	.LBB80:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 350              		.loc 1 111 9 view .LVU112
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 351              		.loc 1 111 23 is_stmt 0 view .LVU113
+ 352 0116 FFF7FEFF 		bl	dsy_gpio_write
+ 353              	.LVL29:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 354              		.loc 1 112 9 is_stmt 1 view .LVU114
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 355              		.loc 1 112 30 is_stmt 0 view .LVU115
+ 356 011a 3246     		mov	r2, r6
+ 357 011c 02A9     		add	r1, sp, #8
+ 358 011e 6423     		movs	r3, #100
+ 359 0120 2046     		mov	r0, r4
+ 360 0122 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 361              	.LVL30:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 362              		.loc 1 112 30 view .LVU116
+ 363 0126 D323     		movs	r3, #211
+ 364              	.LBE80:
+ 365              	.LBE78:
+ 366              	.LBB81:
+ 367              	.LBB82:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 368              		.loc 1 111 23 view .LVU117
+ 369 0128 2946     		mov	r1, r5
+ 370 012a 3846     		mov	r0, r7
+ 371 012c 8DF80830 		strb	r3, [sp, #8]
+ 372              	.LVL31:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 373              		.loc 1 111 23 view .LVU118
+ 374              	.LBE82:
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 12
+
+
+ 375              	.LBI81:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 376              		.loc 1 109 10 is_stmt 1 view .LVU119
+ 377              	.LBB83:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 378              		.loc 1 111 9 view .LVU120
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 379              		.loc 1 111 23 is_stmt 0 view .LVU121
+ 380 0130 FFF7FEFF 		bl	dsy_gpio_write
+ 381              	.LVL32:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 382              		.loc 1 112 9 is_stmt 1 view .LVU122
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 383              		.loc 1 112 30 is_stmt 0 view .LVU123
+ 384 0134 3246     		mov	r2, r6
+ 385 0136 6423     		movs	r3, #100
+ 386 0138 02A9     		add	r1, sp, #8
+ 387 013a 2046     		mov	r0, r4
+ 388 013c FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 389              	.LVL33:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 390              		.loc 1 112 30 view .LVU124
+ 391              	.LBE83:
+ 392              	.LBE81:
+ 393              	.LBB84:
+ 394              	.LBB85:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 395              		.loc 1 111 23 view .LVU125
+ 396 0140 2946     		mov	r1, r5
+ 397 0142 3846     		mov	r0, r7
+ 398 0144 8DF80850 		strb	r5, [sp, #8]
+ 399              	.LVL34:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 400              		.loc 1 111 23 view .LVU126
+ 401              	.LBE85:
+ 402              	.LBI84:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 403              		.loc 1 109 10 is_stmt 1 view .LVU127
+ 404              	.LBB86:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 405              		.loc 1 111 9 view .LVU128
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 406              		.loc 1 111 23 is_stmt 0 view .LVU129
+ 407 0148 FFF7FEFF 		bl	dsy_gpio_write
+ 408              	.LVL35:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 409              		.loc 1 112 9 is_stmt 1 view .LVU130
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 410              		.loc 1 112 30 is_stmt 0 view .LVU131
+ 411 014c 3246     		mov	r2, r6
+ 412 014e 02A9     		add	r1, sp, #8
+ 413 0150 6423     		movs	r3, #100
+ 414 0152 2046     		mov	r0, r4
+ 415 0154 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 416              	.LVL36:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 417              		.loc 1 112 30 view .LVU132
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 13
+
+
+ 418 0158 4023     		movs	r3, #64
+ 419              	.LBE86:
+ 420              	.LBE84:
+ 421              	.LBB87:
+ 422              	.LBB88:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 423              		.loc 1 111 23 view .LVU133
+ 424 015a 2946     		mov	r1, r5
+ 425 015c 3846     		mov	r0, r7
+ 426 015e 8DF80830 		strb	r3, [sp, #8]
+ 427              	.LVL37:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 428              		.loc 1 111 23 view .LVU134
+ 429              	.LBE88:
+ 430              	.LBI87:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 431              		.loc 1 109 10 is_stmt 1 view .LVU135
+ 432              	.LBB89:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 433              		.loc 1 111 9 view .LVU136
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 434              		.loc 1 111 23 is_stmt 0 view .LVU137
+ 435 0162 FFF7FEFF 		bl	dsy_gpio_write
+ 436              	.LVL38:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 437              		.loc 1 112 9 is_stmt 1 view .LVU138
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 438              		.loc 1 112 30 is_stmt 0 view .LVU139
+ 439 0166 3246     		mov	r2, r6
+ 440 0168 02A9     		add	r1, sp, #8
+ 441 016a 6423     		movs	r3, #100
+ 442 016c 2046     		mov	r0, r4
+ 443 016e FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 444              	.LVL39:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 445              		.loc 1 112 30 view .LVU140
+ 446 0172 A623     		movs	r3, #166
+ 447              	.LBE89:
+ 448              	.LBE87:
+ 449              	.LBB90:
+ 450              	.LBB91:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 451              		.loc 1 111 23 view .LVU141
+ 452 0174 2946     		mov	r1, r5
+ 453 0176 3846     		mov	r0, r7
+ 454 0178 8DF80830 		strb	r3, [sp, #8]
+ 455              	.LVL40:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 456              		.loc 1 111 23 view .LVU142
+ 457              	.LBE91:
+ 458              	.LBI90:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 459              		.loc 1 109 10 is_stmt 1 view .LVU143
+ 460              	.LBB92:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 461              		.loc 1 111 9 view .LVU144
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 14
+
+
+ 462              		.loc 1 111 23 is_stmt 0 view .LVU145
+ 463 017c FFF7FEFF 		bl	dsy_gpio_write
+ 464              	.LVL41:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 465              		.loc 1 112 9 is_stmt 1 view .LVU146
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 466              		.loc 1 112 30 is_stmt 0 view .LVU147
+ 467 0180 3246     		mov	r2, r6
+ 468 0182 02A9     		add	r1, sp, #8
+ 469 0184 6423     		movs	r3, #100
+ 470 0186 2046     		mov	r0, r4
+ 471 0188 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 472              	.LVL42:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 473              		.loc 1 112 30 view .LVU148
+ 474 018c A423     		movs	r3, #164
+ 475              	.LBE92:
+ 476              	.LBE90:
+ 477              	.LBB93:
+ 478              	.LBB94:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 479              		.loc 1 111 23 view .LVU149
+ 480 018e 2946     		mov	r1, r5
+ 481 0190 3846     		mov	r0, r7
+ 482 0192 8DF80830 		strb	r3, [sp, #8]
+ 483              	.LVL43:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 484              		.loc 1 111 23 view .LVU150
+ 485              	.LBE94:
+ 486              	.LBI93:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 487              		.loc 1 109 10 is_stmt 1 view .LVU151
+ 488              	.LBB95:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 489              		.loc 1 111 9 view .LVU152
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 490              		.loc 1 111 23 is_stmt 0 view .LVU153
+ 491 0196 FFF7FEFF 		bl	dsy_gpio_write
+ 492              	.LVL44:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 493              		.loc 1 112 9 is_stmt 1 view .LVU154
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 494              		.loc 1 112 30 is_stmt 0 view .LVU155
+ 495 019a 3246     		mov	r2, r6
+ 496 019c 02A9     		add	r1, sp, #8
+ 497 019e 6423     		movs	r3, #100
+ 498 01a0 2046     		mov	r0, r4
+ 499 01a2 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 500              	.LVL45:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 501              		.loc 1 112 30 view .LVU156
+ 502 01a6 8D23     		movs	r3, #141
+ 503              	.LBE95:
+ 504              	.LBE93:
+ 505              	.LBB96:
+ 506              	.LBB97:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 15
+
+
+ 507              		.loc 1 111 23 view .LVU157
+ 508 01a8 2946     		mov	r1, r5
+ 509 01aa 3846     		mov	r0, r7
+ 510 01ac 8DF80830 		strb	r3, [sp, #8]
+ 511              	.LVL46:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 512              		.loc 1 111 23 view .LVU158
+ 513              	.LBE97:
+ 514              	.LBI96:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 515              		.loc 1 109 10 is_stmt 1 view .LVU159
+ 516              	.LBB98:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 517              		.loc 1 111 9 view .LVU160
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 518              		.loc 1 111 23 is_stmt 0 view .LVU161
+ 519 01b0 FFF7FEFF 		bl	dsy_gpio_write
+ 520              	.LVL47:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 521              		.loc 1 112 9 is_stmt 1 view .LVU162
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 522              		.loc 1 112 30 is_stmt 0 view .LVU163
+ 523 01b4 3246     		mov	r2, r6
+ 524 01b6 02A9     		add	r1, sp, #8
+ 525 01b8 6423     		movs	r3, #100
+ 526 01ba 2046     		mov	r0, r4
+ 527 01bc FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 528              	.LVL48:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 529              		.loc 1 112 30 view .LVU164
+ 530 01c0 1423     		movs	r3, #20
+ 531              	.LBE98:
+ 532              	.LBE96:
+ 533              	.LBB99:
+ 534              	.LBB100:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 535              		.loc 1 111 23 view .LVU165
+ 536 01c2 2946     		mov	r1, r5
+ 537 01c4 3846     		mov	r0, r7
+ 538 01c6 8DF80830 		strb	r3, [sp, #8]
+ 539              	.LVL49:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 540              		.loc 1 111 23 view .LVU166
+ 541              	.LBE100:
+ 542              	.LBI99:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 543              		.loc 1 109 10 is_stmt 1 view .LVU167
+ 544              	.LBB101:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 545              		.loc 1 111 9 view .LVU168
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 546              		.loc 1 111 23 is_stmt 0 view .LVU169
+ 547 01ca FFF7FEFF 		bl	dsy_gpio_write
+ 548              	.LVL50:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 549              		.loc 1 112 9 is_stmt 1 view .LVU170
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 16
+
+
+ 550              		.loc 1 112 30 is_stmt 0 view .LVU171
+ 551 01ce 3246     		mov	r2, r6
+ 552 01d0 02A9     		add	r1, sp, #8
+ 553 01d2 6423     		movs	r3, #100
+ 554 01d4 2046     		mov	r0, r4
+ 555 01d6 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 556              	.LVL51:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 557              		.loc 1 112 30 view .LVU172
+ 558 01da A123     		movs	r3, #161
+ 559              	.LBE101:
+ 560              	.LBE99:
+ 561              	.LBB102:
+ 562              	.LBB103:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 563              		.loc 1 111 23 view .LVU173
+ 564 01dc 2946     		mov	r1, r5
+ 565 01de 3846     		mov	r0, r7
+ 566 01e0 8DF80830 		strb	r3, [sp, #8]
+ 567              	.LVL52:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 568              		.loc 1 111 23 view .LVU174
+ 569              	.LBE103:
+ 570              	.LBI102:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 571              		.loc 1 109 10 is_stmt 1 view .LVU175
+ 572              	.LBB104:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 573              		.loc 1 111 9 view .LVU176
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 574              		.loc 1 111 23 is_stmt 0 view .LVU177
+ 575 01e4 FFF7FEFF 		bl	dsy_gpio_write
+ 576              	.LVL53:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 577              		.loc 1 112 9 is_stmt 1 view .LVU178
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 578              		.loc 1 112 30 is_stmt 0 view .LVU179
+ 579 01e8 3246     		mov	r2, r6
+ 580 01ea 02A9     		add	r1, sp, #8
+ 581 01ec 6423     		movs	r3, #100
+ 582 01ee 2046     		mov	r0, r4
+ 583 01f0 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 584              	.LVL54:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 585              		.loc 1 112 30 view .LVU180
+ 586 01f4 C823     		movs	r3, #200
+ 587              	.LBE104:
+ 588              	.LBE102:
+ 589              	.LBB105:
+ 590              	.LBB106:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 591              		.loc 1 111 23 view .LVU181
+ 592 01f6 2946     		mov	r1, r5
+ 593 01f8 3846     		mov	r0, r7
+ 594 01fa 8DF80830 		strb	r3, [sp, #8]
+ 595              	.LVL55:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 17
+
+
+ 596              		.loc 1 111 23 view .LVU182
+ 597              	.LBE106:
+ 598              	.LBI105:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 599              		.loc 1 109 10 is_stmt 1 view .LVU183
+ 600              	.LBB107:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 601              		.loc 1 111 9 view .LVU184
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 602              		.loc 1 111 23 is_stmt 0 view .LVU185
+ 603 01fe FFF7FEFF 		bl	dsy_gpio_write
+ 604              	.LVL56:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 605              		.loc 1 112 9 is_stmt 1 view .LVU186
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 606              		.loc 1 112 30 is_stmt 0 view .LVU187
+ 607 0202 3246     		mov	r2, r6
+ 608 0204 02A9     		add	r1, sp, #8
+ 609 0206 6423     		movs	r3, #100
+ 610 0208 2046     		mov	r0, r4
+ 611 020a FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 612              	.LVL57:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 613              		.loc 1 112 30 view .LVU188
+ 614 020e 8123     		movs	r3, #129
+ 615              	.LBE107:
+ 616              	.LBE105:
+ 617              	.LBB108:
+ 618              	.LBB109:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 619              		.loc 1 111 23 view .LVU189
+ 620 0210 2946     		mov	r1, r5
+ 621 0212 3846     		mov	r0, r7
+ 622 0214 8DF80830 		strb	r3, [sp, #8]
+ 623              	.LVL58:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 624              		.loc 1 111 23 view .LVU190
+ 625              	.LBE109:
+ 626              	.LBI108:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 627              		.loc 1 109 10 is_stmt 1 view .LVU191
+ 628              	.LBB110:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 629              		.loc 1 111 9 view .LVU192
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 630              		.loc 1 111 23 is_stmt 0 view .LVU193
+ 631 0218 FFF7FEFF 		bl	dsy_gpio_write
+ 632              	.LVL59:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 633              		.loc 1 112 9 is_stmt 1 view .LVU194
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 634              		.loc 1 112 30 is_stmt 0 view .LVU195
+ 635 021c 3246     		mov	r2, r6
+ 636 021e 02A9     		add	r1, sp, #8
+ 637 0220 6423     		movs	r3, #100
+ 638 0222 2046     		mov	r0, r4
+ 639 0224 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 18
+
+
+ 640              	.LVL60:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 641              		.loc 1 112 30 view .LVU196
+ 642 0228 8F23     		movs	r3, #143
+ 643              	.LBE110:
+ 644              	.LBE108:
+ 645              	.LBB111:
+ 646              	.LBB112:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 647              		.loc 1 111 23 view .LVU197
+ 648 022a 2946     		mov	r1, r5
+ 649 022c 3846     		mov	r0, r7
+ 650 022e 8DF80830 		strb	r3, [sp, #8]
+ 651              	.LVL61:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 652              		.loc 1 111 23 view .LVU198
+ 653              	.LBE112:
+ 654              	.LBI111:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 655              		.loc 1 109 10 is_stmt 1 view .LVU199
+ 656              	.LBB113:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 657              		.loc 1 111 9 view .LVU200
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 658              		.loc 1 111 23 is_stmt 0 view .LVU201
+ 659 0232 FFF7FEFF 		bl	dsy_gpio_write
+ 660              	.LVL62:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 661              		.loc 1 112 9 is_stmt 1 view .LVU202
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 662              		.loc 1 112 30 is_stmt 0 view .LVU203
+ 663 0236 3246     		mov	r2, r6
+ 664 0238 02A9     		add	r1, sp, #8
+ 665 023a 6423     		movs	r3, #100
+ 666 023c 2046     		mov	r0, r4
+ 667 023e FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 668              	.LVL63:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 669              		.loc 1 112 30 view .LVU204
+ 670 0242 D923     		movs	r3, #217
+ 671              	.LBE113:
+ 672              	.LBE111:
+ 673              	.LBB114:
+ 674              	.LBB115:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 675              		.loc 1 111 23 view .LVU205
+ 676 0244 2946     		mov	r1, r5
+ 677 0246 3846     		mov	r0, r7
+ 678 0248 8DF80830 		strb	r3, [sp, #8]
+ 679              	.LVL64:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 680              		.loc 1 111 23 view .LVU206
+ 681              	.LBE115:
+ 682              	.LBI114:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 683              		.loc 1 109 10 is_stmt 1 view .LVU207
+ 684              	.LBB116:
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 19
+
+
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 685              		.loc 1 111 9 view .LVU208
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 686              		.loc 1 111 23 is_stmt 0 view .LVU209
+ 687 024c FFF7FEFF 		bl	dsy_gpio_write
+ 688              	.LVL65:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 689              		.loc 1 112 9 is_stmt 1 view .LVU210
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 690              		.loc 1 112 30 is_stmt 0 view .LVU211
+ 691 0250 3246     		mov	r2, r6
+ 692 0252 02A9     		add	r1, sp, #8
+ 693 0254 6423     		movs	r3, #100
+ 694 0256 2046     		mov	r0, r4
+ 695 0258 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 696              	.LVL66:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 697              		.loc 1 112 30 view .LVU212
+ 698 025c 2523     		movs	r3, #37
+ 699              	.LBE116:
+ 700              	.LBE114:
+ 701              	.LBB117:
+ 702              	.LBB118:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 703              		.loc 1 111 23 view .LVU213
+ 704 025e 2946     		mov	r1, r5
+ 705 0260 3846     		mov	r0, r7
+ 706 0262 8DF80830 		strb	r3, [sp, #8]
+ 707              	.LVL67:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 708              		.loc 1 111 23 view .LVU214
+ 709              	.LBE118:
+ 710              	.LBI117:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 711              		.loc 1 109 10 is_stmt 1 view .LVU215
+ 712              	.LBB119:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 713              		.loc 1 111 9 view .LVU216
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 714              		.loc 1 111 23 is_stmt 0 view .LVU217
+ 715 0266 FFF7FEFF 		bl	dsy_gpio_write
+ 716              	.LVL68:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 717              		.loc 1 112 9 is_stmt 1 view .LVU218
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 718              		.loc 1 112 30 is_stmt 0 view .LVU219
+ 719 026a 3246     		mov	r2, r6
+ 720 026c 02A9     		add	r1, sp, #8
+ 721 026e 6423     		movs	r3, #100
+ 722 0270 2046     		mov	r0, r4
+ 723 0272 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 724              	.LVL69:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 725              		.loc 1 112 30 view .LVU220
+ 726 0276 DB23     		movs	r3, #219
+ 727              	.LBE119:
+ 728              	.LBE117:
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 20
+
+
+ 729              	.LBB120:
+ 730              	.LBB121:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 731              		.loc 1 111 23 view .LVU221
+ 732 0278 2946     		mov	r1, r5
+ 733 027a 3846     		mov	r0, r7
+ 734 027c 8DF80830 		strb	r3, [sp, #8]
+ 735              	.LVL70:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 736              		.loc 1 111 23 view .LVU222
+ 737              	.LBE121:
+ 738              	.LBI120:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 739              		.loc 1 109 10 is_stmt 1 view .LVU223
+ 740              	.LBB122:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 741              		.loc 1 111 9 view .LVU224
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 742              		.loc 1 111 23 is_stmt 0 view .LVU225
+ 743 0280 FFF7FEFF 		bl	dsy_gpio_write
+ 744              	.LVL71:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 745              		.loc 1 112 9 is_stmt 1 view .LVU226
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 746              		.loc 1 112 30 is_stmt 0 view .LVU227
+ 747 0284 3246     		mov	r2, r6
+ 748 0286 02A9     		add	r1, sp, #8
+ 749 0288 6423     		movs	r3, #100
+ 750 028a 2046     		mov	r0, r4
+ 751 028c FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 752              	.LVL72:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 753              		.loc 1 112 30 view .LVU228
+ 754 0290 3423     		movs	r3, #52
+ 755              	.LBE122:
+ 756              	.LBE120:
+ 757              	.LBB123:
+ 758              	.LBB124:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 759              		.loc 1 111 23 view .LVU229
+ 760 0292 2946     		mov	r1, r5
+ 761 0294 3846     		mov	r0, r7
+ 762 0296 8DF80830 		strb	r3, [sp, #8]
+ 763              	.LVL73:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 764              		.loc 1 111 23 view .LVU230
+ 765              	.LBE124:
+ 766              	.LBI123:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 767              		.loc 1 109 10 is_stmt 1 view .LVU231
+ 768              	.LBB125:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 769              		.loc 1 111 9 view .LVU232
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 770              		.loc 1 111 23 is_stmt 0 view .LVU233
+ 771 029a FFF7FEFF 		bl	dsy_gpio_write
+ 772              	.LVL74:
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 21
+
+
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 773              		.loc 1 112 9 is_stmt 1 view .LVU234
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 774              		.loc 1 112 30 is_stmt 0 view .LVU235
+ 775 029e 3246     		mov	r2, r6
+ 776 02a0 02A9     		add	r1, sp, #8
+ 777 02a2 6423     		movs	r3, #100
+ 778 02a4 2046     		mov	r0, r4
+ 779 02a6 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 780              	.LVL75:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 781              		.loc 1 112 30 view .LVU236
+ 782 02aa AF23     		movs	r3, #175
+ 783              	.LBE125:
+ 784              	.LBE123:
+ 785              	.LBB126:
+ 786              	.LBB127:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 787              		.loc 1 111 23 view .LVU237
+ 788 02ac 2946     		mov	r1, r5
+ 789 02ae 3846     		mov	r0, r7
+ 790 02b0 8DF80830 		strb	r3, [sp, #8]
+ 791              	.LVL76:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 792              		.loc 1 111 23 view .LVU238
+ 793              	.LBE127:
+ 794              	.LBI126:
+ 109:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 795              		.loc 1 109 10 is_stmt 1 view .LVU239
+ 796              	.LBB128:
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 797              		.loc 1 111 9 view .LVU240
+ 111:../../libdaisy/src/dev/oled_ssd130x.h ****         spi_.BlockingTransmit(&cmd, 1);
+ 798              		.loc 1 111 23 is_stmt 0 view .LVU241
+ 799 02b4 FFF7FEFF 		bl	dsy_gpio_write
+ 800              	.LVL77:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 801              		.loc 1 112 9 is_stmt 1 view .LVU242
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 802              		.loc 1 112 30 is_stmt 0 view .LVU243
+ 803 02b8 6423     		movs	r3, #100
+ 804 02ba 3246     		mov	r2, r6
+ 805 02bc 02A9     		add	r1, sp, #8
+ 806 02be 2046     		mov	r0, r4
+ 807 02c0 FFF7FEFF 		bl	_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+ 808              	.LVL78:
+ 112:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 809              		.loc 1 112 30 view .LVU244
+ 810              	.LBE128:
+ 811              	.LBE126:
+ 141:../../libdaisy/src/dev/oled_ssd130x.h ****     {
+ 142:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.Init(config.transport_config);
+ 143:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 144:../../libdaisy/src/dev/oled_ssd130x.h ****         // Init routine...
+ 145:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 146:../../libdaisy/src/dev/oled_ssd130x.h ****         // Display Off
+ 147:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xaE);
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 22
+
+
+ 148:../../libdaisy/src/dev/oled_ssd130x.h ****         // Dimension dependent commands...
+ 149:../../libdaisy/src/dev/oled_ssd130x.h ****         switch(height)
+ 150:../../libdaisy/src/dev/oled_ssd130x.h ****         {
+ 151:../../libdaisy/src/dev/oled_ssd130x.h ****             case 16:
+ 152:../../libdaisy/src/dev/oled_ssd130x.h ****                 // Display Clock Divide Ratio
+ 153:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xD5);
+ 154:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x60);
+ 155:../../libdaisy/src/dev/oled_ssd130x.h ****                 // Multiplex Ratio
+ 156:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xA8);
+ 157:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x0F);
+ 158:../../libdaisy/src/dev/oled_ssd130x.h ****                 // COM Pins
+ 159:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xDA);
+ 160:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x02);
+ 161:../../libdaisy/src/dev/oled_ssd130x.h ****                 break;
+ 162:../../libdaisy/src/dev/oled_ssd130x.h ****             case 32:
+ 163:../../libdaisy/src/dev/oled_ssd130x.h ****                 // Display Clock Divide Ratio
+ 164:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xD5);
+ 165:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x80);
+ 166:../../libdaisy/src/dev/oled_ssd130x.h ****                 // Multiplex Ratio
+ 167:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xA8);
+ 168:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x1F);
+ 169:../../libdaisy/src/dev/oled_ssd130x.h ****                 // COM Pins
+ 170:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xDA);
+ 171:../../libdaisy/src/dev/oled_ssd130x.h ****                 if(width == 64)
+ 172:../../libdaisy/src/dev/oled_ssd130x.h ****                 {
+ 173:../../libdaisy/src/dev/oled_ssd130x.h ****                     transport_.SendCommand(0x12);
+ 174:../../libdaisy/src/dev/oled_ssd130x.h ****                 }
+ 175:../../libdaisy/src/dev/oled_ssd130x.h ****                 else
+ 176:../../libdaisy/src/dev/oled_ssd130x.h ****                 {
+ 177:../../libdaisy/src/dev/oled_ssd130x.h ****                     transport_.SendCommand(0x02);
+ 178:../../libdaisy/src/dev/oled_ssd130x.h ****                 }
+ 179:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 180:../../libdaisy/src/dev/oled_ssd130x.h ****                 break;
+ 181:../../libdaisy/src/dev/oled_ssd130x.h ****             case 48:
+ 182:../../libdaisy/src/dev/oled_ssd130x.h ****                 // Display Clock Divide Ratio
+ 183:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xD5);
+ 184:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x80);
+ 185:../../libdaisy/src/dev/oled_ssd130x.h ****                 // Multiplex Ratio
+ 186:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xA8);
+ 187:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x2F);
+ 188:../../libdaisy/src/dev/oled_ssd130x.h ****                 // COM Pins
+ 189:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xDA);
+ 190:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x12);
+ 191:../../libdaisy/src/dev/oled_ssd130x.h ****                 break;
+ 192:../../libdaisy/src/dev/oled_ssd130x.h ****             default: // 128
+ 193:../../libdaisy/src/dev/oled_ssd130x.h ****                 // Display Clock Divide Ratio
+ 194:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xD5);
+ 195:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x80);
+ 196:../../libdaisy/src/dev/oled_ssd130x.h ****                 // Multiplex Ratio
+ 197:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xA8);
+ 198:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x3F);
+ 199:../../libdaisy/src/dev/oled_ssd130x.h ****                 // COM Pins
+ 200:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0xDA);
+ 201:../../libdaisy/src/dev/oled_ssd130x.h ****                 transport_.SendCommand(0x12);
+ 202:../../libdaisy/src/dev/oled_ssd130x.h ****                 break;
+ 203:../../libdaisy/src/dev/oled_ssd130x.h ****         }
+ 204:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 23
+
+
+ 205:../../libdaisy/src/dev/oled_ssd130x.h ****         // Display Offset
+ 206:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xD3);
+ 207:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0x00);
+ 208:../../libdaisy/src/dev/oled_ssd130x.h ****         // Start Line Address
+ 209:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0x40);
+ 210:../../libdaisy/src/dev/oled_ssd130x.h ****         // Normal Display
+ 211:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xA6);
+ 212:../../libdaisy/src/dev/oled_ssd130x.h ****         // All On Resume
+ 213:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xA4);
+ 214:../../libdaisy/src/dev/oled_ssd130x.h ****         // Charge Pump
+ 215:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0x8D);
+ 216:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0x14);
+ 217:../../libdaisy/src/dev/oled_ssd130x.h ****         // Set Segment Remap
+ 218:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xA1);
+ 219:../../libdaisy/src/dev/oled_ssd130x.h ****         // COM Output Scan Direction
+ 220:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xC8);
+ 221:../../libdaisy/src/dev/oled_ssd130x.h ****         // Contrast Control
+ 222:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0x81);
+ 223:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0x8F);
+ 224:../../libdaisy/src/dev/oled_ssd130x.h ****         // Pre Charge
+ 225:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xD9);
+ 226:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0x25);
+ 227:../../libdaisy/src/dev/oled_ssd130x.h ****         // VCOM Detect
+ 228:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xDB);
+ 229:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0x34);
+ 230:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 231:../../libdaisy/src/dev/oled_ssd130x.h **** 
+ 232:../../libdaisy/src/dev/oled_ssd130x.h ****         // Display On
+ 233:../../libdaisy/src/dev/oled_ssd130x.h ****         transport_.SendCommand(0xAF); //--turn on oled panel
+ 234:../../libdaisy/src/dev/oled_ssd130x.h ****     };
+ 812              		.loc 1 234 5 view .LVU245
+ 813 02c4 0CB0     		add	sp, sp, #48
+ 814              		.cfi_def_cfa_offset 24
+ 815              		@ sp needed
+ 816 02c6 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 817              	.LVL79:
+ 818              	.L5:
+ 819              		.loc 1 234 5 view .LVU246
+ 820 02ca 00BF     		.align	2
+ 821              	.L4:
+ 822 02cc 060B0B00 		.word	723718
+ 823 02d0 0105060A 		.word	168166657
+ 824              		.cfi_endproc
+ 825              	.LFE1814:
+ 827              		.section	.text._Z12hardwareInitPN5daisy9DaisySeedEPNS_11OledDisplayINS_13SSD130xDriverILj128ELj64E
+ 828              		.align	1
+ 829              		.p2align 2,,3
+ 830              		.global	_Z12hardwareInitPN5daisy9DaisySeedEPNS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SS
+ 831              		.syntax unified
+ 832              		.thumb
+ 833              		.thumb_func
+ 834              		.fpu fpv5-d16
+ 836              	_Z12hardwareInitPN5daisy9DaisySeedEPNS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4Wir
+ 837              	.LVL80:
+ 838              	.LFB1812:
+ 839              		.file 2 "globalFunc.cpp"
+   1:globalFunc.cpp **** #include "globalFunc.h"
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 24
+
+
+   2:globalFunc.cpp **** 
+   3:globalFunc.cpp **** void hardwareInit(daisy::DaisySeed* seed, daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* o
+ 840              		.loc 2 3 110 is_stmt 1 view -0
+ 841              		.cfi_startproc
+ 842              		@ args = 0, pretend = 0, frame = 8
+ 843              		@ frame_needed = 0, uses_anonymous_args = 0
+   4:globalFunc.cpp ****     seed->Configure();
+ 844              		.loc 2 4 5 view .LVU248
+   3:globalFunc.cpp ****     seed->Configure();
+ 845              		.loc 2 3 110 is_stmt 0 view .LVU249
+ 846 0000 30B5     		push	{r4, r5, lr}
+ 847              		.cfi_def_cfa_offset 12
+ 848              		.cfi_offset 4, -12
+ 849              		.cfi_offset 5, -8
+ 850              		.cfi_offset 14, -4
+ 851 0002 0546     		mov	r5, r0
+ 852 0004 83B0     		sub	sp, sp, #12
+ 853              		.cfi_def_cfa_offset 24
+   3:globalFunc.cpp ****     seed->Configure();
+ 854              		.loc 2 3 110 view .LVU250
+ 855 0006 0C46     		mov	r4, r1
+ 856              		.loc 2 4 20 view .LVU251
+ 857 0008 FFF7FEFF 		bl	_ZN5daisy9DaisySeed9ConfigureEv
+ 858              	.LVL81:
+   5:globalFunc.cpp ****     seed->Init();
+ 859              		.loc 2 5 5 is_stmt 1 view .LVU252
+ 860              		.loc 2 5 15 is_stmt 0 view .LVU253
+ 861 000c 0021     		movs	r1, #0
+ 862 000e 2846     		mov	r0, r5
+ 863 0010 FFF7FEFF 		bl	_ZN5daisy9DaisySeed4InitEb
+ 864              	.LVL82:
+   6:globalFunc.cpp ****     /** Configure the Display */
+   7:globalFunc.cpp ****     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>::Config disp_cfg;
+ 865              		.loc 2 7 5 is_stmt 1 view .LVU254
+   8:globalFunc.cpp ****     disp_cfg.driver_config.transport_config.pin_config.dc    = seed->GetPin(9);
+ 866              		.loc 2 8 5 view .LVU255
+ 867              		.loc 2 8 78 is_stmt 0 view .LVU256
+ 868 0014 0920     		movs	r0, #9
+ 869 0016 FFF7FEFF 		bl	_ZN5daisy9DaisySeed6GetPinEh
+ 870              	.LVL83:
+ 871 001a 0346     		mov	r3, r0	@ movhi
+   9:globalFunc.cpp ****     disp_cfg.driver_config.transport_config.pin_config.reset = seed->GetPin(30);
+ 872              		.loc 2 9 79 view .LVU257
+ 873 001c 1E20     		movs	r0, #30
+   8:globalFunc.cpp ****     disp_cfg.driver_config.transport_config.pin_config.dc    = seed->GetPin(9);
+ 874              		.loc 2 8 78 view .LVU258
+ 875 001e ADF80030 		strh	r3, [sp]	@ movhi
+ 876              		.loc 2 9 5 is_stmt 1 view .LVU259
+ 877              		.loc 2 9 79 is_stmt 0 view .LVU260
+ 878 0022 FFF7FEFF 		bl	_ZN5daisy9DaisySeed6GetPinEh
+ 879              	.LVL84:
+ 880 0026 0346     		mov	r3, r0	@ movhi
+ 881              	.LBB129:
+ 882              	.LBB130:
+ 883              		.file 3 "../../libdaisy/src/hid/disp/oled_display.h"
+   1:../../libdaisy/src/hid/disp/oled_display.h **** #pragma once
+   2:../../libdaisy/src/hid/disp/oled_display.h **** #ifndef DSY_OLED_DISPLAY_H
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 25
+
+
+   3:../../libdaisy/src/hid/disp/oled_display.h **** #define DSY_OLED_DISPLAY_H /**< Macro */
+   4:../../libdaisy/src/hid/disp/oled_display.h **** 
+   5:../../libdaisy/src/hid/disp/oled_display.h **** #include "display.h"
+   6:../../libdaisy/src/hid/disp/oled_display.h **** 
+   7:../../libdaisy/src/hid/disp/oled_display.h **** namespace daisy
+   8:../../libdaisy/src/hid/disp/oled_display.h **** {
+   9:../../libdaisy/src/hid/disp/oled_display.h **** /** 
+  10:../../libdaisy/src/hid/disp/oled_display.h ****  * This class is for drawing to a monochrome OLED display. 
+  11:../../libdaisy/src/hid/disp/oled_display.h **** */
+  12:../../libdaisy/src/hid/disp/oled_display.h **** template <typename DisplayDriver>
+  13:../../libdaisy/src/hid/disp/oled_display.h **** class OledDisplay : public OneBitGraphicsDisplayImpl<OledDisplay<DisplayDriver>>
+  14:../../libdaisy/src/hid/disp/oled_display.h **** {
+  15:../../libdaisy/src/hid/disp/oled_display.h ****   public:
+  16:../../libdaisy/src/hid/disp/oled_display.h ****     OledDisplay() {}
+  17:../../libdaisy/src/hid/disp/oled_display.h ****     virtual ~OledDisplay() {}
+  18:../../libdaisy/src/hid/disp/oled_display.h **** 
+  19:../../libdaisy/src/hid/disp/oled_display.h ****     struct Config
+  20:../../libdaisy/src/hid/disp/oled_display.h ****     {
+  21:../../libdaisy/src/hid/disp/oled_display.h ****         typename DisplayDriver::Config driver_config;
+  22:../../libdaisy/src/hid/disp/oled_display.h ****     };
+  23:../../libdaisy/src/hid/disp/oled_display.h **** 
+  24:../../libdaisy/src/hid/disp/oled_display.h ****     void Init(Config config) { driver_.Init(config.driver_config); }
+ 884              		.loc 3 24 44 view .LVU261
+ 885 0028 04F10800 		add	r0, r4, #8
+ 886              	.LBE130:
+ 887              	.LBE129:
+ 888              		.loc 2 9 79 view .LVU262
+ 889 002c ADF80230 		strh	r3, [sp, #2]	@ movhi
+  10:globalFunc.cpp ****     /** And Initialize */
+  11:globalFunc.cpp ****    oledScreen->Init(disp_cfg);
+ 890              		.loc 2 11 4 is_stmt 1 view .LVU263
+ 891              	.LVL85:
+ 892              	.LBB132:
+ 893              	.LBI129:
+ 894              		.loc 3 24 10 view .LVU264
+ 895              	.LBB131:
+ 896              		.loc 3 24 44 is_stmt 0 view .LVU265
+ 897 0030 0099     		ldr	r1, [sp]
+ 898 0032 FFF7FEFF 		bl	_ZN5daisy13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEE4InitENS2_6ConfigE
+ 899              	.LVL86:
+ 900              		.loc 3 24 44 view .LVU266
+ 901              	.LBE131:
+ 902              	.LBE132:
+  12:globalFunc.cpp **** }
+ 903              		.loc 2 12 1 view .LVU267
+ 904 0036 03B0     		add	sp, sp, #12
+ 905              		.cfi_def_cfa_offset 12
+ 906              		@ sp needed
+ 907 0038 30BD     		pop	{r4, r5, pc}
+ 908              		.loc 2 12 1 view .LVU268
+ 909              		.cfi_endproc
+ 910              	.LFE1812:
+ 912 003a 00BF     		.text
+ 913              	.Letext0:
+ 914              		.file 4 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include\
+ 915              		.file 5 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include\
+ 916              		.file 6 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include\
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 26
+
+
+ 917              		.file 7 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\lib\\gcc\\arm-none-eabi
+ 918              		.file 8 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include\
+ 919              		.file 9 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include\
+ 920              		.file 10 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 921              		.file 11 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 922              		.file 12 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 923              		.file 13 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 924              		.file 14 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 925              		.file 15 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 926              		.file 16 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 927              		.file 17 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 928              		.file 18 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 929              		.file 19 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 930              		.file 20 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 931              		.file 21 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 932              		.file 22 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 933              		.file 23 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 934              		.file 24 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 935              		.file 25 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 936              		.file 26 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 937              		.file 27 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 938              		.file 28 "../../libdaisy/src/daisy_core.h"
+ 939              		.file 29 "../../libdaisy/src/per/tim.h"
+ 940              		.file 30 "../../libdaisy/src/sys/system.h"
+ 941              		.file 31 "../../libdaisy/src/per/dac.h"
+ 942              		.file 32 "../../libdaisy/src/per/sai.h"
+ 943              		.file 33 "../../libdaisy/src/hid/audio.h"
+ 944              		.file 34 "../../libdaisy/src/per/adc.h"
+ 945              		.file 35 "../../libdaisy/src/hid/usb.h"
+ 946              		.file 36 "../../libdaisy/src/per/spi.h"
+ 947              		.file 37 "../../libdaisy/src/util/wav_format.h"
+ 948              		.file 38 "../../libdaisy/src/daisy_seed.h"
+ 949              		.file 39 "../../libdaisy/src/per/qspi.h"
+ 950              		.file 40 "../../libdaisy/src/per/gpio.h"
+ 951              		.file 41 "../../libdaisy/src/dev/sdram.h"
+ 952              		.file 42 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\lib\\gcc\\arm-none-eab
+ 953              		.file 43 "c:\\users\\vin\355cius\\documents\\daisytoolchain-0.3.1\\windows\\arm-none-eabi\\include
+ 954              		.file 44 "../../libdaisy/src/dev/sr_595.h"
+ 955              		.file 45 "<built-in>"
+ARM GAS  C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s 			page 27
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 globalFunc.cpp
+C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s:17     .text._ZN5daisy13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEE4InitENS2_6ConfigE:00000000 $t
+C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s:26     .text._ZN5daisy13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEE4InitENS2_6ConfigE:00000000 _ZN5daisy13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEE4InitENS2_6ConfigE
+C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s:822    .text._ZN5daisy13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEE4InitENS2_6ConfigE:000002cc $d
+C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s:828    .text._Z12hardwareInitPN5daisy9DaisySeedEPNS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEE:00000000 $t
+C:\Users\VINCIU~1\AppData\Local\Temp\ccMPh1ed.s:836    .text._Z12hardwareInitPN5daisy9DaisySeedEPNS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEE:00000000 _Z12hardwareInitPN5daisy9DaisySeedEPNS_11OledDisplayINS_13SSD130xDriverILj128ELj64ENS_24SSD130x4WireSpiTransportEEEEE
+
+UNDEFINED SYMBOLS
+dsy_gpio_init
+_ZN5daisy9SpiHandle4InitERKNS0_6ConfigE
+dsy_gpio_write
+_ZN5daisy6System5DelayEm
+_ZN5daisy9SpiHandle16BlockingTransmitEPhjm
+_ZN5daisy9DaisySeed9ConfigureEv
+_ZN5daisy9DaisySeed4InitEb
+_ZN5daisy9DaisySeed6GetPinEh

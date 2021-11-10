@@ -33,7 +33,7 @@ int main(void)
     while(1)
     {
         midi.Listen();
-        synthMenus.SplashScreen(&display);
+        synthMenus.splashScreen(&display);
         if(midi.HasEvents())
         {
             HandleMidiMessage(midi.PopEvent(), &osc);

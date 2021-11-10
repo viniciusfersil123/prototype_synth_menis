@@ -1,9 +1,8 @@
 #include "menus.h"
 
-void Menus::SplashScreen(
-    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
-{
-    bool colorTemplate = false;
+void Menus::drawMenis(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen){
+        bool colorTemplate = false;
     screen->Fill(colorTemplate);
     //RECTANGLE
     screen->DrawRect(screen->Width() / 2 - 10,
@@ -109,4 +108,12 @@ void Menus::SplashScreen(
                      true);
     this->splashScreenRectY = this->splashScreenRectY - 0.1;
     screen->Update();
+
+    }
+
+
+void Menus::splashScreen(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
+{
+    drawMenis(screen);
 }

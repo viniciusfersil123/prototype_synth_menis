@@ -7,7 +7,7 @@ class Menus
 {
   public:
     float splashScreenRectY = 0;
-    void  SplashScreen(
-         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+    void  splashScreen(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+    void  drawMenis(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
 };
 #endif

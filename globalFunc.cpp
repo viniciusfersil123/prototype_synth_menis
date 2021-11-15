@@ -1,10 +1,12 @@
 #include "globalFunc.h"
+unsigned int polyIndexOn  = 0;
+unsigned int polyIndexOff = 0;
 
-void SynthInit(
-    DaisySeed*                                       seed,
-    OledDisplay<SSD130x4WireSpi128x64Driver>* oledScreen,
-    Oscillator*                                    osc,
-    MidiHandler<MidiUartTransport>*                         midi)
+void SynthInit(DaisySeed*                                seed,
+               OledDisplay<SSD130x4WireSpi128x64Driver>* oledScreen,
+               Voice*                                    voice,
+               MidiHandler<MidiUartTransport>*           midi,
+               int                                       numVoices)
 {
     MidiHandler<MidiUartTransport>::Config midi_cfg;
     seed->Configure();
@@ -15,15 +17,18 @@ void SynthInit(
     disp_cfg.driver_config.transport_config.pin_config.reset = seed->GetPin(30);
     /** And Initialize */
     oledScreen->Init(disp_cfg);
-    osc->Init(seed->AudioSampleRate());
-    osc->SetWaveform(osc->WAVE_SAW);
-    osc->SetAmp(0.5);
-    osc->SetFreq(440);
+    for(int i = 0; i < numVoices; i++)
+    {
+        voice[i].osc.Init(seed->AudioSampleRate());
+        voice[i].osc.SetWaveform(voice[i].osc.WAVE_SAW);
+        voice[i].osc.SetAmp(0.5);
+        voice[i].osc.SetFreq(0);
+    }
     midi->Init(midi_cfg);
     midi->StartReceive();
 }
 
-void HandleMidiMessage(MidiEvent m, Oscillator* osc)
+void HandleMidiMessage(MidiEvent m, VoiceManager* voiceMng)
 {
     switch(m.type)
     {
@@ -33,8 +38,18 @@ void HandleMidiMessage(MidiEvent m, Oscillator* osc)
             NoteOnEvent p = m.AsNoteOn();
             if(m.data[1] != 0)
             {
-                osc->SetFreq(mtof(p.note));
-                osc->SetAmp(0.7);
+                if(polyIndexOn <= voiceMng->NumberOfVoices - 1)
+                {
+                    voiceMng->voices[polyIndexOn].osc.SetFreq(mtof(p.note));
+                    voiceMng->voices[polyIndexOn].osc.SetAmp(0.7);
+                    polyIndexOn++;
+                }
+                else
+                {
+                    polyIndexOn = 0;
+                    voiceMng->voices[polyIndexOn].osc.SetFreq(mtof(p.note));
+                    voiceMng->voices[polyIndexOn].osc.SetAmp(0.7);
+                }
             }
         }
         break;
@@ -43,7 +58,16 @@ void HandleMidiMessage(MidiEvent m, Oscillator* osc)
         {
             if(m.data[1] != 0)
             {
-                osc->SetAmp(0);
+                if(polyIndexOff <= voiceMng->NumberOfVoices - 1)
+                {
+                    voiceMng->voices[polyIndexOff].osc.SetAmp(0);
+                    polyIndexOff++;
+                }
+                else
+                {
+                    polyIndexOff = 0;
+                    voiceMng->voices[polyIndexOff].osc.SetAmp(0);
+                }
             }
         }
         break;

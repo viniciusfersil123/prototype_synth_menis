@@ -3,14 +3,17 @@
 #include "daisy_seed.h"
 #include "daisysp.h"
 #include "dev/oled_ssd130x.h"
+#include "Voice.h"
+#include "VoiceManager.h"
 using namespace daisy;
 using namespace daisysp;
 
-void SynthInit(
-    DaisySeed*                                       seed,
-    OledDisplay<SSD130x4WireSpi128x64Driver>* oledScreen,
-    Oscillator*                                      osc, MidiHandler<MidiUartTransport>* midi);
+void SynthInit(DaisySeed*                                seed,
+               OledDisplay<SSD130x4WireSpi128x64Driver>* oledScreen,
+               Voice*                                    osc,
+               MidiHandler<MidiUartTransport>*           midi,
+               int                                       numVoices);
 
-void HandleMidiMessage(MidiEvent m, daisysp::Oscillator* osc);
+void HandleMidiMessage(MidiEvent m, VoiceManager* voiceMng);
 
 #endif

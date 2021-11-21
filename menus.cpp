@@ -3,11 +3,11 @@
 //TODO:Global Screen
 Menus::Menus(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
-    //bottom-right x1,y1 __ top-left x2,y2
-    this->canvas.x1 = screen->Width()-(marginLeft + marginRight);
-    this->canvas.y1 = screen->Width() - marginBottom;
-    this->canvas.x2 = marginLeft ;
-    this->canvas.y2 = marginUp;
+    //bottom-left x1,y1 __ top-right x2,y2
+    this->canvas.x1 = marginLeft;
+    this->canvas.y1 = screen->Height() - marginBottom;
+    this->canvas.x2 = screen->Width() - (marginLeft+marginRight) ;
+    this->canvas.y2 = marginUp + 20;
 }
 
 
@@ -144,10 +144,10 @@ void Menus::drawWaveGraphics(
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
     drawSawGraphics(screen,
-                    marginLeft,
-                    screen->Height() - marginBottom,
-                    screen->Width() - (marginRight + marginLeft),
-                    screen->Height() - marginBottom,
+                    this->canvas.x1,
+                    this->canvas.y1,
+                    this->canvas.x2,
+                    (screen->Height())-(this->canvas.y2),
                     7);
 }
 

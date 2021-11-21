@@ -14,7 +14,7 @@ class Menus
 
     struct graphicsArea
     {
-        //bottom-right x1,y1 __ top-left x2,y2
+        //bottom-left x1,y1 __ top-right x2,y2
         uint8_t x1;
         uint8_t y1;
         uint8_t x2;

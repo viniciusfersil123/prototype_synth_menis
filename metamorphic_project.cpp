@@ -13,8 +13,8 @@ SynthOled                      display;
 Menus                          synthMenus(&display);
 VoiceManager                   voiceMng;
 MidiHandler<MidiUartTransport> midi;
-bool                           splashScreenRunning = true;
-int                           splashScreenDuration = 0;
+bool                           splashScreenRunning  = true;
+int                            splashScreenDuration = 0;
 
 void AudioCallback(AudioHandle::InputBuffer  in,
                    AudioHandle::OutputBuffer out,
@@ -51,7 +51,7 @@ int main(void)
         {
             synthMenus.splashScreen(&display);
             splashScreenDuration++;
-            splashScreenRunning = splashScreenDuration < 1024; 
+            splashScreenRunning = splashScreenDuration < 1024;
         }
         else
         {

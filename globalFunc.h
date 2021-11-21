@@ -8,12 +8,17 @@
 using namespace daisy;
 using namespace daisysp;
 
-void SynthInit(DaisySeed*                                seed,
-               OledDisplay<SSD130x4WireSpi128x64Driver>* oledScreen,
-               Voice*                                    osc,
-               MidiHandler<MidiUartTransport>*           midi,
-               int                                       numVoices,
-               Encoder*                                  encoderRight);
+struct hardwareToInit
+{
+    public:
+    DaisySeed                                seed;
+    OledDisplay<SSD130x4WireSpi128x64Driver> oledScreen;
+    MidiHandler<MidiUartTransport>           midi;
+    Encoder                                  encoderRight;
+    
+};
+
+void SynthInit(hardwareToInit* hw, VoiceManager* vMng);
 
 void HandleMidiMessage(MidiEvent m, VoiceManager* voiceMng);
 

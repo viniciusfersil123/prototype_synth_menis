@@ -11,16 +11,13 @@ using SynthOled = OledDisplay<SSD130x4WireSpi128x64Driver>;
 //TODO: Revisar e refatorar ultimos commits
 //TODO: Refatorar polifonia para seleção otimizada de voz, ou lidar com outra forma com o voice stealing
 //VARIABLES
-DaisySeed                      hw;
-SynthOled                      display;
-Menus                          synthMenus(&display);
-VoiceManager                   voiceMng;
-MidiHandler<MidiUartTransport> midi;
-bool                           splashScreenRunning  = true;
-int                            splashScreenDuration = 0;
-Encoder                        encoderRight;
-uint8_t                        iterations = 3;
-                  
+bool           splashScreenRunning  = true;
+int            splashScreenDuration = 0;
+uint8_t        iterations           = 3;
+hardwareToInit hwToInit;
+VoiceManager   voiceMng;
+Menus          synthMenus(&hwToInit.oledScreen);
+
 
 void AudioCallback(AudioHandle::InputBuffer  in,
                    AudioHandle::OutputBuffer out,
@@ -47,35 +44,29 @@ void AudioCallback(AudioHandle::InputBuffer  in,
 
 int main(void)
 {
-    //TODO:Implementar solução mais elegante que syntINIT
-    SynthInit(&hw,
-              &display,
-              voiceMng.voices,
-              &midi,
-              voiceMng.NumberOfVoices,
-              &encoderRight);
-    hw.usb_handle.Init(UsbHandle::FS_INTERNAL);
-    hw.StartAudio(AudioCallback);
+    SynthInit(&hwToInit, &voiceMng);
+    hwToInit.seed.usb_handle.Init(UsbHandle::FS_INTERNAL);
+    hwToInit.seed.StartAudio(AudioCallback);
     while(1)
     {
-        encoderRight.Debounce();
+        hwToInit.encoderRight.Debounce();
         //TODO: Refatorar nome de variáveies iterations
-        iterations += encoderRight.Increment();
+        iterations += hwToInit.encoderRight.Increment();
         synthMenus.iterations = &iterations;
-        midi.Listen();
+        hwToInit.midi.Listen();
         if(splashScreenRunning)
         {
-            synthMenus.splashScreen(&display);
+            synthMenus.splashScreen(&hwToInit.oledScreen);
             splashScreenDuration++;
             splashScreenRunning = splashScreenDuration < 1024;
         }
         else
         {
-            synthMenus.Menu1(&display);
+            synthMenus.Menu1(&hwToInit.oledScreen);
         }
-        if(midi.HasEvents())
+        if(hwToInit.midi.HasEvents())
         {
-            HandleMidiMessage(midi.PopEvent(), &voiceMng);
+            HandleMidiMessage(hwToInit.midi.PopEvent(), &voiceMng);
         }
     }
 }

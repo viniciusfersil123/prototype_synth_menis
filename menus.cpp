@@ -1,15 +1,16 @@
 #include "menus.h"
+#include <math.h>
 //TODO:Global ColorTemplate
 //TODO:Global Screen
 //TODO:Interpolação Linear entre a mudança de iterations
+//TODO:Refatorar Cursor
 Menus::Menus(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
     //bottom-left x1,y1 __ top-right x2,y2
     this->canvas.x1 = marginLeft;
     this->canvas.y1 = screen->Height() - marginBottom;
-    this->canvas.x2 = screen->Width() - (marginLeft+marginRight) ;
-    this->canvas.y2 = marginUp + 20;
-    
+    this->canvas.x2 = screen->Width() - (marginLeft + marginRight);
+    this->canvas.y2 = marginUp + 30;
 }
 
 
@@ -124,6 +125,16 @@ void Menus::drawMenis(
     screen->Update();
 }
 
+void Menus::drawCursor(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+    uint8_t                                                 x,
+    uint8_t                                                 y,
+    uint8_t                                                 radius,
+    int sweep)
+{
+    screen->DrawArc(x, y, radius, artAngle, 45 + sweep, true);
+}
+
 void Menus::drawSawGraphics(
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
     uint8_t                                                 x,
@@ -149,7 +160,7 @@ void Menus::drawWaveGraphics(
                     this->canvas.x1,
                     this->canvas.y1,
                     this->canvas.x2,
-                    (screen->Height())-(this->canvas.y2),
+                    (screen->Height()) - (this->canvas.y2),
                     *iterations);
 }
 
@@ -163,6 +174,8 @@ void Menus::Menu1(
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
     screen->Fill(false);
+    drawCursor(screen, marginLeft, marginUp, 10, ((sin(artAngle * M_PI / 180)+1)*0.5)*90);
+    artAngle = int((artAngle - (sin(artAngle * M_PI / 180)+2))) % 360;
     drawWaveGraphics(screen);
     screen->Update();
 }

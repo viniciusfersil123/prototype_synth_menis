@@ -2,7 +2,9 @@
 #define MENUS_H
 #include "daisy_seed.h"
 #include "dev/oled_ssd130x.h"
-
+//TODO: Organizar declarações
+//TODO: Adicionar public e private
+//TODO: Refatorar Animação
 class Menus
 {
   public:
@@ -11,7 +13,8 @@ class Menus
     const uint8_t marginRight       = 10;
     const uint8_t marginUp          = 10;
     const uint8_t marginBottom      = 10;
-    uint8_t* iterations;
+    uint8_t*      iterations;
+    int           artAngle = 0;
 
     struct graphicsArea
     {
@@ -39,5 +42,11 @@ class Menus
     void drawWaveGraphics(
         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
     void Menu1(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+    void
+    drawCursor(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+               uint8_t                                                 x,
+               uint8_t                                                 y,
+               uint8_t                                                 radius,
+               int                                                     sweep);
 };
 #endif

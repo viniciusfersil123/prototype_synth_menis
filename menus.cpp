@@ -1,8 +1,20 @@
 #include "menus.h"
+//TODO:Global ColorTemplate
+//TODO:Global Screen
+Menus::Menus(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
+{
+    //bottom-right x1,y1 __ top-left x2,y2
+    this->canvas.x1 = screen->Width()-(marginLeft + marginRight);
+    this->canvas.y1 = screen->Width() - marginBottom;
+    this->canvas.x2 = marginLeft ;
+    this->canvas.y2 = marginUp;
+}
+
 
 void Menus::drawMenis(
-    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen){
-        bool colorTemplate = false;
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
+{
+    bool colorTemplate = false;
     screen->Fill(colorTemplate);
     //RECTANGLE
     screen->DrawRect(screen->Width() / 2 - 10,
@@ -108,12 +120,47 @@ void Menus::drawMenis(
                      true);
     this->splashScreenRectY = this->splashScreenRectY - 0.1;
     screen->Update();
+}
 
+void Menus::drawSawGraphics(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+    uint8_t                                                 x,
+    uint8_t                                                 y,
+    uint8_t                                                 width,
+    uint8_t                                                 height,
+    uint8_t                                                 iterations)
+{
+    for(size_t i = 0; i < iterations; i++)
+    {
+        int ratio = width / iterations;
+        screen->DrawLine(
+            x + ratio * i, y, x + ratio * (i + 1), y - height, true);
+        screen->DrawLine(
+            x + ratio * (i + 1), y - height, x + ratio * (i + 1), y, true);
     }
+}
 
+void Menus::drawWaveGraphics(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
+{
+    drawSawGraphics(screen,
+                    marginLeft,
+                    screen->Height() - marginBottom,
+                    screen->Width() - (marginRight + marginLeft),
+                    screen->Height() - marginBottom,
+                    7);
+}
 
 void Menus::splashScreen(
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
     drawMenis(screen);
+}
+
+void Menus::Menu1(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
+{
+    screen->Fill(false);
+    drawWaveGraphics(screen);
+    screen->Update();
 }

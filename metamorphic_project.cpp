@@ -10,10 +10,11 @@ using SynthOled = OledDisplay<SSD130x4WireSpi128x64Driver>;
 //VARIABLES
 DaisySeed                      hw;
 SynthOled                      display;
-Menus                          synthMenus;
+Menus                          synthMenus(&display);
 VoiceManager                   voiceMng;
 MidiHandler<MidiUartTransport> midi;
-
+bool                           splashScreenRunning = true;
+int                           splashScreenDuration = 0;
 
 void AudioCallback(AudioHandle::InputBuffer  in,
                    AudioHandle::OutputBuffer out,
@@ -46,7 +47,16 @@ int main(void)
     while(1)
     {
         midi.Listen();
-        synthMenus.splashScreen(&display);
+        if(splashScreenRunning)
+        {
+            synthMenus.splashScreen(&display);
+            splashScreenDuration++;
+            splashScreenRunning = splashScreenDuration < 1024; 
+        }
+        else
+        {
+            synthMenus.Menu1(&display);
+        }
         if(midi.HasEvents())
         {
             HandleMidiMessage(midi.PopEvent(), &voiceMng);

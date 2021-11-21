@@ -7,6 +7,9 @@
 #include "globalFunc.h"
 //USING
 using SynthOled = OledDisplay<SSD130x4WireSpi128x64Driver>;
+//TODO:Rever tipos
+//TODO: Revisar e refatorar ultimos commits
+//TODO: Refatorar polifonia para seleção otimizada de voz, ou lidar com outra forma com o voice stealing
 //VARIABLES
 DaisySeed                      hw;
 SynthOled                      display;
@@ -15,6 +18,9 @@ VoiceManager                   voiceMng;
 MidiHandler<MidiUartTransport> midi;
 bool                           splashScreenRunning  = true;
 int                            splashScreenDuration = 0;
+Encoder                        encoderRight;
+uint8_t                        iterations = 3;
+                  
 
 void AudioCallback(AudioHandle::InputBuffer  in,
                    AudioHandle::OutputBuffer out,
@@ -41,11 +47,21 @@ void AudioCallback(AudioHandle::InputBuffer  in,
 
 int main(void)
 {
-    SynthInit(&hw, &display, voiceMng.voices, &midi, voiceMng.NumberOfVoices);
+    //TODO:Implementar solução mais elegante que syntINIT
+    SynthInit(&hw,
+              &display,
+              voiceMng.voices,
+              &midi,
+              voiceMng.NumberOfVoices,
+              &encoderRight);
     hw.usb_handle.Init(UsbHandle::FS_INTERNAL);
     hw.StartAudio(AudioCallback);
     while(1)
     {
+        encoderRight.Debounce();
+        //TODO: Refatorar nome de variáveies iterations
+        iterations += encoderRight.Increment();
+        synthMenus.iterations = &iterations;
         midi.Listen();
         if(splashScreenRunning)
         {

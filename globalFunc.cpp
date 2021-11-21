@@ -2,11 +2,12 @@
 unsigned int polyIndexOn  = 0;
 unsigned int polyIndexOff = 0;
 
-void SynthInit(DaisySeed*                                seed,
-               OledDisplay<SSD130x4WireSpi128x64Driver>* oledScreen,
-               Voice*                                    voice,
-               MidiHandler<MidiUartTransport>*           midi,
-               int                                       numVoices)
+void         SynthInit(DaisySeed*                                seed,
+                       OledDisplay<SSD130x4WireSpi128x64Driver>* oledScreen,
+                       Voice*                                    voice,
+                       MidiHandler<MidiUartTransport>*           midi,
+                       int                                       numVoices,
+                       Encoder*                                  encoderRight)
 {
     MidiHandler<MidiUartTransport>::Config midi_cfg;
     seed->Configure();
@@ -26,6 +27,10 @@ void SynthInit(DaisySeed*                                seed,
     }
     midi->Init(midi_cfg);
     midi->StartReceive();
+    encoderRight->Init(seed->GetPin(16),
+                       seed->GetPin(17),
+                       seed->GetPin(15),
+                       seed->AudioSampleRate());
 }
 
 void HandleMidiMessage(MidiEvent m, VoiceManager* voiceMng)

@@ -11,6 +11,7 @@ class Menus
     const uint8_t marginRight       = 10;
     const uint8_t marginUp          = 10;
     const uint8_t marginBottom      = 10;
+    uint8_t* iterations;
 
     struct graphicsArea
     {

@@ -12,7 +12,8 @@ void SynthInit(DaisySeed*                                seed,
                OledDisplay<SSD130x4WireSpi128x64Driver>* oledScreen,
                Voice*                                    osc,
                MidiHandler<MidiUartTransport>*           midi,
-               int                                       numVoices);
+               int                                       numVoices,
+               Encoder*                                  encoderRight);
 
 void HandleMidiMessage(MidiEvent m, VoiceManager* voiceMng);
 

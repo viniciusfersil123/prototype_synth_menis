@@ -1,6 +1,7 @@
 #include "menus.h"
 //TODO:Global ColorTemplate
 //TODO:Global Screen
+//TODO:Interpolação Linear entre a mudança de iterations
 Menus::Menus(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
     //bottom-left x1,y1 __ top-right x2,y2
@@ -8,6 +9,7 @@ Menus::Menus(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
     this->canvas.y1 = screen->Height() - marginBottom;
     this->canvas.x2 = screen->Width() - (marginLeft+marginRight) ;
     this->canvas.y2 = marginUp + 20;
+    
 }
 
 
@@ -148,7 +150,7 @@ void Menus::drawWaveGraphics(
                     this->canvas.y1,
                     this->canvas.x2,
                     (screen->Height())-(this->canvas.y2),
-                    7);
+                    *iterations);
 }
 
 void Menus::splashScreen(

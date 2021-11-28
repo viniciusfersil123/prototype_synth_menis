@@ -7,10 +7,20 @@
 Menus::Menus(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
     //bottom-left x1,y1 __ top-right x2,y2
-    this->canvas.x1 = marginLeft;
-    this->canvas.y1 = screen->Height() - marginBottom;
-    this->canvas.x2 = screen->Width() - (marginLeft + marginRight);
-    this->canvas.y2 = marginUp + 30;
+    this->waveCanvas.x1 = screen->Width() / 2 + 7;
+    this->waveCanvas.y1 = screen->Height() - marginBottom / 2;
+    this->waveCanvas.x2 = screen->Width() / 2 - marginRight;
+    this->waveCanvas.y2 = marginUp * 3.75;
+
+    this->parametersCanvas.x1 = marginLeft / 3;
+    this->parametersCanvas.y1 = 0;
+    this->parametersCanvas.x2 = screen->Width() - marginRight / 3;
+    this->parametersCanvas.y2 = marginUp * 2;
+
+    this->infoCanvas.x1  = this->parametersCanvas.x1;
+    this->infoCanvas.y1  = this->parametersCanvas.y2;
+    this->infoCanvas.x2 = this->waveCanvas.x1;
+    this->infoCanvas.y2  = this->waveCanvas.y1;
 }
 
 
@@ -157,10 +167,10 @@ void Menus::drawWaveGraphics(
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
     drawSawGraphics(screen,
-                    this->canvas.x1,
-                    this->canvas.y1,
-                    this->canvas.x2,
-                    (screen->Height()) - (this->canvas.y2),
+                    this->waveCanvas.x1,
+                    this->waveCanvas.y1,
+                    this->waveCanvas.x2,
+                    (screen->Height()) - (this->waveCanvas.y2),
                     *iterations);
 }
 
@@ -168,6 +178,18 @@ void Menus::splashScreen(
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
     drawMenis(screen);
+}
+
+void Menus::drawInfo(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
+{
+    // sprintf(this->oscIdString, "Semi_st");
+    int cursorX;
+    int cursorY;
+    cursorX = (this->infoCanvas.x2/2-(sizeof(this->oscIdString)))-9;
+    cursorY = this->infoCanvas.y1 + 7;
+    screen->SetCursor(cursorX, cursorY);
+    screen->WriteString(this->oscIdString, Font_6x8, true);
 }
 
 void Menus::Menu1(hardwareToInit* hw)
@@ -183,10 +205,23 @@ void Menus::Menu1(hardwareToInit* hw)
     }
     drawCursor(&hw->oledScreen,
                uint8_t(marginLeft + (this->cursorPos) * this->headerGridWidth),
-               marginUp,
-               10,
+               marginUp - 3,
+               7,
                ((sin(arcAngle * M_PI / 180) + 1) * 0.5) * 90);
     arcAngle = int((arcAngle - (sin(arcAngle * M_PI / 180) + 2))) % 360;
+    // hw->oledScreen.DrawRect(this->parametersCanvas.x1,
+    //                         this->parametersCanvas.y1,
+    //                         this->parametersCanvas.x2,
+    //                         this->parametersCanvas.y2,
+    //                         true,
+    //                         false);
+    hw->oledScreen.DrawLine(hw->oledScreen.Width()/4,this->infoCanvas.y1,((hw->oledScreen.Width() - hw->oledScreen.Width()/4))+3,this->infoCanvas.y1,true);
+    hw->oledScreen.DrawLine(hw->oledScreen.Width()/2, this->infoCanvas.y1 + 4,hw->oledScreen.Width()/2, hw->oledScreen.Height()-marginBottom,true);
+    // hw->oledScreen.DrawRect(this->infoCanvas.x1,
+    //                         this->infoCanvas.y1,
+    //                         this->infoCanvas.x2,
+    //                         this->infoCanvas.y2,true,false);
+    drawInfo(&hw->oledScreen);
     drawWaveGraphics(&hw->oledScreen);
     hw->oledScreen.Update();
 }

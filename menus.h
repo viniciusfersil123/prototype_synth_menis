@@ -10,14 +10,15 @@ class Menus
 {
   public:
     float         splashScreenRectY = 0;
-    const uint8_t marginLeft        = 10;
+    const uint8_t marginLeft        = 15;
     const uint8_t marginRight       = 10;
     const uint8_t marginUp          = 10;
-    const uint8_t marginBottom      = 10;
+    const uint8_t marginBottom      = 15;
     uint8_t*      iterations;
     int           arcAngle        = 0;
     uint8_t       cursorPos       = 0;
     uint8_t       headerGridWidth = 20;
+    char          oscIdString[6] = "OSC I";
 
     struct graphicsArea
     {
@@ -27,7 +28,10 @@ class Menus
         uint8_t x2;
         uint8_t y2;
     };
-    graphicsArea canvas;
+    graphicsArea waveCanvas;
+    graphicsArea parametersCanvas;
+    graphicsArea infoCanvas;
+
 
     Menus(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
 
@@ -51,5 +55,7 @@ class Menus
                uint8_t                                                 y,
                uint8_t                                                 radius,
                int                                                     sweep);
+    void
+    drawInfo(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
 };
 #endif

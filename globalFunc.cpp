@@ -3,18 +3,18 @@ unsigned int polyIndexOn  = 0;
 unsigned int polyIndexOff = 0;
 
 
-
 void SynthInit(hardwareToInit* hw, VoiceManager* vMng)
 {
     MidiHandler<MidiUartTransport>::Config midi_cfg;
     hw->seed.Configure();
     hw->seed.Init();
-    /** Configure the Display */
     OledDisplay<SSD130x4WireSpi128x64Driver>::Config disp_cfg;
-    disp_cfg.driver_config.transport_config.pin_config.dc    = hw->seed.GetPin(9);
-    disp_cfg.driver_config.transport_config.pin_config.reset = hw->seed.GetPin(30);
-    /** And Initialize */
+    disp_cfg.driver_config.transport_config.pin_config.dc = hw->seed.GetPin(9);
+    disp_cfg.driver_config.transport_config.pin_config.reset
+        = hw->seed.GetPin(30);
     hw->oledScreen.Init(disp_cfg);
+    hw->buttonLeft.Init(hw->seed.GetPin(27), hw->seed.AudioSampleRate());
+    hw->buttonRight.Init(hw->seed.GetPin(26), hw->seed.AudioSampleRate());
     for(int i = 0; i < vMng->NumberOfVoices; i++)
     {
         vMng->voices[i].osc.Init(hw->seed.AudioSampleRate());
@@ -25,9 +25,9 @@ void SynthInit(hardwareToInit* hw, VoiceManager* vMng)
     hw->midi.Init(midi_cfg);
     hw->midi.StartReceive();
     hw->encoderRight.Init(hw->seed.GetPin(16),
-                       hw->seed.GetPin(17),
-                       hw->seed.GetPin(15),
-                       hw->seed.AudioSampleRate());
+                          hw->seed.GetPin(17),
+                          hw->seed.GetPin(15),
+                          hw->seed.AudioSampleRate());
 }
 
 void HandleMidiMessage(MidiEvent m, VoiceManager* voiceMng)

@@ -1,14 +1,14 @@
 #include "daisy_seed.h"
 #include "daisysp.h"
 #include "dev/oled_ssd130x.h"
+#include "globalFunc.h"
 #include "menus.h"
 #include "Voice.h"
 #include "VoiceManager.h"
-#include "globalFunc.h"
+
 //USING
 using SynthOled = OledDisplay<SSD130x4WireSpi128x64Driver>;
 //TODO:Rever tipos
-//TODO: Revisar e refatorar ultimos commits
 //TODO: Refatorar polifonia para seleção otimizada de voz, ou lidar com outra forma com o voice stealing
 //VARIABLES
 bool           splashScreenRunning  = true;
@@ -50,6 +50,8 @@ int main(void)
     while(1)
     {
         hwToInit.encoderRight.Debounce();
+        hwToInit.buttonLeft.Debounce();
+        hwToInit.buttonRight.Debounce();
         //TODO: Refatorar nome de variáveies iterations
         iterations += hwToInit.encoderRight.Increment();
         synthMenus.iterations = &iterations;
@@ -62,7 +64,7 @@ int main(void)
         }
         else
         {
-            synthMenus.Menu1(&hwToInit.oledScreen);
+            synthMenus.Menu1(&hwToInit);
         }
         if(hwToInit.midi.HasEvents())
         {

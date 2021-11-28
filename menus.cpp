@@ -130,9 +130,9 @@ void Menus::drawCursor(
     uint8_t                                                 x,
     uint8_t                                                 y,
     uint8_t                                                 radius,
-    int sweep)
+    int                                                     sweep)
 {
-    screen->DrawArc(x, y, radius, artAngle, 45 + sweep, true);
+    screen->DrawArc(x, y, radius, arcAngle, 45 + sweep, true);
 }
 
 void Menus::drawSawGraphics(
@@ -170,12 +170,23 @@ void Menus::splashScreen(
     drawMenis(screen);
 }
 
-void Menus::Menu1(
-    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
+void Menus::Menu1(hardwareToInit* hw)
 {
-    screen->Fill(false);
-    drawCursor(screen, marginLeft, marginUp, 10, ((sin(artAngle * M_PI / 180)+1)*0.5)*90);
-    artAngle = int((artAngle - (sin(artAngle * M_PI / 180)+2))) % 360;
-    drawWaveGraphics(screen);
-    screen->Update();
+    hw->oledScreen.Fill(false);
+    if(hw->buttonRight.RisingEdge())
+    {
+        this->cursorPos < 5 ? this->cursorPos++ : this->cursorPos = 5;
+    }
+    if(hw->buttonLeft.RisingEdge())
+    {
+        this->cursorPos > 0 ? this->cursorPos-- : this->cursorPos = 0;
+    }
+    drawCursor(&hw->oledScreen,
+               uint8_t(marginLeft + (this->cursorPos) * this->headerGridWidth),
+               marginUp,
+               10,
+               ((sin(arcAngle * M_PI / 180) + 1) * 0.5) * 90);
+    arcAngle = int((arcAngle - (sin(arcAngle * M_PI / 180) + 2))) % 360;
+    drawWaveGraphics(&hw->oledScreen);
+    hw->oledScreen.Update();
 }

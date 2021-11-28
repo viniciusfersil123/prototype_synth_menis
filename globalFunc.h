@@ -10,12 +10,13 @@ using namespace daisysp;
 
 struct hardwareToInit
 {
-    public:
+  public:
     DaisySeed                                seed;
     OledDisplay<SSD130x4WireSpi128x64Driver> oledScreen;
     MidiHandler<MidiUartTransport>           midi;
     Encoder                                  encoderRight;
-    
+    Switch                                   buttonLeft;
+    Switch                                   buttonRight;
 };
 
 void SynthInit(hardwareToInit* hw, VoiceManager* vMng);

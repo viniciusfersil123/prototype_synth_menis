@@ -2,7 +2,7 @@
 #include <math.h>
 //TODO:Global ColorTemplate
 //TODO:Global Screen
-//TODO:Interpolação Linear entre a mudança de iterations
+//TODO:Interpolação Linear entre a mudança de iterations e movimento cursor
 //TODO:Refatorar Cursor
 Menus::Menus(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
@@ -17,10 +17,10 @@ Menus::Menus(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
     this->parametersCanvas.x2 = screen->Width() - marginRight / 3;
     this->parametersCanvas.y2 = marginUp * 2;
 
-    this->infoCanvas.x1  = this->parametersCanvas.x1;
-    this->infoCanvas.y1  = this->parametersCanvas.y2;
+    this->infoCanvas.x1 = this->parametersCanvas.x1;
+    this->infoCanvas.y1 = this->parametersCanvas.y2;
     this->infoCanvas.x2 = this->waveCanvas.x1;
-    this->infoCanvas.y2  = this->waveCanvas.y1;
+    this->infoCanvas.y2 = this->waveCanvas.y1;
 }
 
 
@@ -145,6 +145,24 @@ void Menus::drawCursor(
     screen->DrawArc(x, y, radius, arcAngle, 45 + sweep, true);
 }
 
+void Menus::drawIcons(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+    uint8_t                                                 x,
+    uint8_t                                                 y)
+{
+    drawIOIcon(screen, x, y);
+}
+
+void Menus::drawIOIcon(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+    uint8_t                                                 x,
+    uint8_t                                                 y)
+{
+    screen->DrawCircle(marginLeft, marginUp - 3, 2, true);
+    screen->DrawLine(marginLeft, marginUp - 8, marginLeft, marginUp + 2, true);
+    screen->DrawLine(marginLeft, marginUp - 6, marginLeft, marginUp, false);
+}
+
 void Menus::drawSawGraphics(
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
     uint8_t                                                 x,
@@ -163,6 +181,54 @@ void Menus::drawSawGraphics(
     }
 }
 
+void Menus::drawHorizontalToggle(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+    uint8_t                                                 x,
+    uint8_t                                                 y,
+    uint8_t                                                 radius,
+    bool                                                    on,
+    bool                                                    state,
+    const char*                                             label)
+{
+    screen->DrawArc(x, y, radius, 270, 180, on);
+    screen->DrawArc(x - radius, y, radius, 270, -180, on);
+    screen->DrawLine(x, y - radius, x - radius, y - radius, on);
+    screen->DrawLine(x, y + radius, x - radius, y + radius, on);
+    screen->SetCursor(x - (radius * 1.75), y - (radius * 2.5));
+    screen->WriteString(label, Font_7x10, on);
+
+    if(state == true)
+    {
+        for(int i = 1; i <= radius; i++)
+        {
+            screen->DrawCircle(x, y, (radius / 2) - i, on);
+            screen->DrawCircle(x, y, (radius / 2) - i, on);
+            screen->SetCursor(x - radius * 1.35, y - radius / 3);
+            screen->WriteString("I", Font_6x8, on);
+        }
+    }
+    else
+    {
+        for(int i = 1; i <= radius; i++)
+        {
+            screen->DrawCircle(x - radius, y, (radius / 2) - i, on);
+            screen->DrawCircle(x - radius, y, (radius / 2) - i, on);
+            screen->SetCursor(x - radius * 0.15, y - radius / 3);
+            screen->WriteString("0", Font_6x8, on);
+        }
+    }
+}
+
+void Menus::drawSilenceGraphics(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
+{
+    for(uint8_t i = 0; i < screen->Width() - 15; i++)
+    {
+        screen->DrawPixel(
+            (screen->Width() / 2) + 15 + (i * 4), screen->Height() / 1.5, true);
+    }
+}
+
 void Menus::drawWaveGraphics(
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
@@ -173,6 +239,7 @@ void Menus::drawWaveGraphics(
                     (screen->Height()) - (this->waveCanvas.y2),
                     *iterations);
 }
+
 
 void Menus::splashScreen(
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
@@ -186,13 +253,30 @@ void Menus::drawInfo(
     // sprintf(this->oscIdString, "Semi_st");
     int cursorX;
     int cursorY;
-    cursorX = (this->infoCanvas.x2/2-(sizeof(this->oscIdString)))-9;
+    cursorX = (this->infoCanvas.x2 / 2 - (sizeof(this->oscIdString))) - 9;
     cursorY = this->infoCanvas.y1 + 7;
     screen->SetCursor(cursorX, cursorY);
     screen->WriteString(this->oscIdString, Font_6x8, true);
 }
 
-void Menus::Menu1(hardwareToInit* hw)
+void Menus::onOffHandler(hardwareToInit* hw, VoiceManager* VoiceMng)
+{
+    if(hw->encoderRight.Increment() != 0)
+    {
+        hw->encoderRight.Increment() == 1 ? this->isOn = true
+                                          : this->isOn = false;
+    }
+    if(!this->isOn)
+    {
+        for(uint8_t i = 0; i < VoiceMng->NumberOfVoices; i++)
+        {
+            VoiceMng->voices[i].osc.SetAmp(0);
+        }
+    }
+}
+
+
+void Menus::Menu1(hardwareToInit* hw, VoiceManager* VoiceMng)
 {
     hw->oledScreen.Fill(false);
     if(hw->buttonRight.RisingEdge())
@@ -215,13 +299,35 @@ void Menus::Menu1(hardwareToInit* hw)
     //                         this->parametersCanvas.y2,
     //                         true,
     //                         false);
-    hw->oledScreen.DrawLine(hw->oledScreen.Width()/4,this->infoCanvas.y1,((hw->oledScreen.Width() - hw->oledScreen.Width()/4))+3,this->infoCanvas.y1,true);
-    hw->oledScreen.DrawLine(hw->oledScreen.Width()/2, this->infoCanvas.y1 + 4,hw->oledScreen.Width()/2, hw->oledScreen.Height()-marginBottom,true);
+    drawIcons(&hw->oledScreen, 0, 0);
+    hw->oledScreen.DrawLine(
+        hw->oledScreen.Width() / 4,
+        this->infoCanvas.y1,
+        ((hw->oledScreen.Width() - hw->oledScreen.Width() / 4)) + 3,
+        this->infoCanvas.y1,
+        true);
+    hw->oledScreen.DrawLine(hw->oledScreen.Width() / 2,
+                            this->infoCanvas.y1 + 4,
+                            hw->oledScreen.Width() / 2,
+                            hw->oledScreen.Height() - marginBottom,
+                            true);
     // hw->oledScreen.DrawRect(this->infoCanvas.x1,
     //                         this->infoCanvas.y1,
     //                         this->infoCanvas.x2,
     //                         this->infoCanvas.y2,true,false);
     drawInfo(&hw->oledScreen);
-    drawWaveGraphics(&hw->oledScreen);
+    isOn ? drawWaveGraphics(&hw->oledScreen)
+         : drawSilenceGraphics(&hw->oledScreen);
+    if(this->cursorPos == 0)
+    {
+        drawHorizontalToggle(&hw->oledScreen,
+                             marginLeft + 23,
+                             hw->oledScreen.Height() - (marginBottom + 1),
+                             8,
+                             true,
+                             isOn,
+                             "");
+        onOffHandler(hw, VoiceMng);
+    }
     hw->oledScreen.Update();
 }

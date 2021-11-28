@@ -18,7 +18,8 @@ class Menus
     int           arcAngle        = 0;
     uint8_t       cursorPos       = 0;
     uint8_t       headerGridWidth = 20;
-    char          oscIdString[6] = "OSC I";
+    char          oscIdString[6]  = "OSC I";
+    bool          isOn            = true;
 
     struct graphicsArea
     {
@@ -48,7 +49,7 @@ class Menus
         uint8_t                                                 iterations);
     void drawWaveGraphics(
         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
-    void Menu1(hardwareToInit* hw);
+    void Menu1(hardwareToInit* hw, VoiceManager* VoiceMng);
     void
     drawCursor(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
                uint8_t                                                 x,
@@ -57,5 +58,27 @@ class Menus
                int                                                     sweep);
     void
     drawInfo(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+    void
+    drawIcons(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+              uint8_t                                                 x,
+              uint8_t                                                 y);
+
+    void
+    drawIOIcon(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+               uint8_t                                                 x,
+               uint8_t                                                 y);
+    void onOffHandler(hardwareToInit* hw, VoiceManager* VoiceMng);
+    void drawHorizontalToggle(
+        daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+        uint8_t                                                 x,
+        uint8_t                                                 y,
+        uint8_t                                                 radius,
+        bool                                                    on,
+        bool                                                    state,
+        const char*                                             label);
+    void drawSilenceGraphics(
+        daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
 };
+
+
 #endif

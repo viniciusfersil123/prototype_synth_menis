@@ -10,6 +10,7 @@ class VoiceManager
     Voice*               findFreeVoice();
     void                 onNoteOn(int noteNumber);
     void                 onNoteOff(int noteNumber);
+    
 };
 
 #endif

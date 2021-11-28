@@ -64,7 +64,7 @@ int main(void)
         }
         else
         {
-            synthMenus.Menu1(&hwToInit);
+            synthMenus.Menu1(&hwToInit,&voiceMng);
         }
         if(hwToInit.midi.HasEvents())
         {

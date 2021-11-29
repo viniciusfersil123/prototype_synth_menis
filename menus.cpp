@@ -3,7 +3,9 @@
 //TODO:Global ColorTemplate
 //TODO:Global Screen
 //TODO:Interpolação Linear entre a mudança de iterations e movimento cursor
-//TODO:Refatorar Cursor
+
+//TODO:Implementar DSP Ganho 
+//TODO: passar amplitude para drawWave
 Menus::Menus(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
     //bottom-left x1,y1 __ top-right x2,y2
@@ -150,17 +152,29 @@ void Menus::drawIcons(
     uint8_t                                                 x,
     uint8_t                                                 y)
 {
-    drawIOIcon(screen, x, y);
+    drawIOIcon(screen);
+    drawGainIcon(screen);
 }
 
 void Menus::drawIOIcon(
-    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
-    uint8_t                                                 x,
-    uint8_t                                                 y)
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
     screen->DrawCircle(marginLeft, marginUp - 3, 2, true);
     screen->DrawLine(marginLeft, marginUp - 8, marginLeft, marginUp + 2, true);
     screen->DrawLine(marginLeft, marginUp - 6, marginLeft, marginUp, false);
+}
+
+void Menus::drawGainIcon(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
+{
+    for(uint8_t i = 0; i < 5; i++)
+    {
+        screen->DrawLine(((marginLeft + this->headerGridWidth) - 4) + i * 2,
+                         (marginUp - 1),
+                         ((marginLeft + this->headerGridWidth) - 4) + i * 2,
+                         (marginUp - 1) - i,
+                         true);
+    }
 }
 
 void Menus::drawSawGraphics(
@@ -257,6 +271,15 @@ void Menus::drawInfo(
     cursorY = this->infoCanvas.y1 + 7;
     screen->SetCursor(cursorX, cursorY);
     screen->WriteString(this->oscIdString, Font_6x8, true);
+
+
+    if(this->cursorPos == 1)
+    {
+        cursorX = (this->infoCanvas.x2 / 2 - (sizeof(this->oscIdString))) - 9;
+        cursorY = screen->Height() - (marginBottom - 3);
+        screen->SetCursor(cursorX, cursorY);
+        screen->WriteString(this->gainLabel, Font_6x8, true);
+    }
 }
 
 void Menus::onOffHandler(hardwareToInit* hw, VoiceManager* VoiceMng)
@@ -273,6 +296,28 @@ void Menus::onOffHandler(hardwareToInit* hw, VoiceManager* VoiceMng)
             VoiceMng->voices[i].osc.SetAmp(0);
         }
     }
+}
+
+void Menus::gainHandler(hardwareToInit* hw, VoiceManager* VoiceMng) {}
+
+
+void Menus::drawSlider(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+    float                                                   x,
+    float                                                   y,
+    float                                                   width,
+    float                                                   height,
+    float                                                   on,
+    float                                                   amount)
+{
+    uint8_t padding = 3;
+    screen->DrawRect(x - padding,
+                     y - padding,
+                     x + width + padding,
+                     (y + height) + padding,
+                     on,
+                     false);
+    screen->DrawRect(x, y, x + width * amount, y + height, on, true);
 }
 
 
@@ -318,16 +363,43 @@ void Menus::Menu1(hardwareToInit* hw, VoiceManager* VoiceMng)
     drawInfo(&hw->oledScreen);
     isOn ? drawWaveGraphics(&hw->oledScreen)
          : drawSilenceGraphics(&hw->oledScreen);
-    if(this->cursorPos == 0)
+    switch(this->cursorPos)
     {
-        drawHorizontalToggle(&hw->oledScreen,
-                             marginLeft + 23,
-                             hw->oledScreen.Height() - (marginBottom + 1),
-                             8,
-                             true,
-                             isOn,
-                             "");
-        onOffHandler(hw, VoiceMng);
+        case 0:
+            drawHorizontalToggle(&hw->oledScreen,
+                                 marginLeft + 23,
+                                 hw->oledScreen.Height() - (marginBottom + 1),
+                                 8,
+                                 true,
+                                 isOn,
+                                 "");
+            onOffHandler(hw, VoiceMng);
+            break;
+        case 1:
+            drawSlider(&hw->oledScreen,
+                       marginLeft - 5,
+                       hw->oledScreen.Height() - (marginBottom + 7),
+                       45,
+                       1,
+                       true,
+                       this->gain);
+
+            if(this->gain > 1)
+            {
+                this->gain = 1;
+            }
+            else if(this->gain < 0)
+            {
+                this->gain = 0;
+            }
+            else
+            {
+                this->gain += (float(hw->encoderRight.Increment())) / 45;
+            }
+            gainHandler(hw, VoiceMng);
+            break;
+        default: break;
     }
+
     hw->oledScreen.Update();
 }

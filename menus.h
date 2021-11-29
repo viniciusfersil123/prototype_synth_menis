@@ -19,7 +19,9 @@ class Menus
     uint8_t       cursorPos       = 0;
     uint8_t       headerGridWidth = 20;
     char          oscIdString[6]  = "OSC I";
+    char          gainLabel[6]    = "0.0db";
     bool          isOn            = true;
+    float         gain            = 1;
 
     struct graphicsArea
     {
@@ -64,9 +66,7 @@ class Menus
               uint8_t                                                 y);
 
     void
-    drawIOIcon(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
-               uint8_t                                                 x,
-               uint8_t                                                 y);
+    drawIOIcon(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
     void onOffHandler(hardwareToInit* hw, VoiceManager* VoiceMng);
     void drawHorizontalToggle(
         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
@@ -78,6 +78,17 @@ class Menus
         const char*                                             label);
     void drawSilenceGraphics(
         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+    void gainHandler(hardwareToInit* hw, VoiceManager* VoiceMng);
+    void drawGainIcon(
+        daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+    void
+    drawSlider(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+               float                                                   x,
+               float                                                   y,
+               float                                                   width,
+               float                                                   height,
+               float                                                   on,
+               float                                                   amount);
 };
 
 

@@ -4,7 +4,10 @@
 //TODO:Global Screen
 //TODO:Interpolação Linear entre a mudança de iterations e movimento cursor
 
-//TODO:Implementar DSP Ganho 
+//TODO:Resolver Strings
+
+
+//TODO:Implementar DSP Ganho
 //TODO: passar amplitude para drawWave
 Menus::Menus(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
@@ -189,9 +192,9 @@ void Menus::drawSawGraphics(
     {
         int ratio = width / iterations;
         screen->DrawLine(
-            x + ratio * i, y, x + ratio * (i + 1), y - height, true);
+            x + ratio * i, y, x + ratio * (i + 1), (y - (height*this->gain)), true);
         screen->DrawLine(
-            x + ratio * (i + 1), y - height, x + ratio * (i + 1), y, true);
+            x + ratio * (i + 1), (y - (height*this->gain)), x + ratio * (i + 1), y, true);
     }
 }
 
@@ -246,6 +249,12 @@ void Menus::drawSilenceGraphics(
 void Menus::drawWaveGraphics(
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
+    // drawSawGraphics(screen,
+    //                 this->waveCanvas.x1,
+    //                 this->waveCanvas.y1,
+    //                 this->waveCanvas.x2,
+    //                 (screen->Height()) - (this->waveCanvas.y2),
+    //                 *iterations);
     drawSawGraphics(screen,
                     this->waveCanvas.x1,
                     this->waveCanvas.y1,

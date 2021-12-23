@@ -30,11 +30,11 @@ void AudioCallback(AudioHandle::InputBuffer  in,
         {
             if(i == 0)
             {
-                osc_out = voiceMng.voices[i].osc.Process();
+                osc_out = voiceMng.voices[i].osc.Process()*synthMenus.gain;
             }
             else
             {
-                osc_out += voiceMng.voices[i].osc.Process();
+                osc_out += voiceMng.voices[i].osc.Process()*synthMenus.gain;
             }
         }
         out[0][i] = osc_out / voiceMng.NumberOfVoices;
@@ -53,7 +53,7 @@ int main(void)
         hwToInit.buttonLeft.Debounce();
         hwToInit.buttonRight.Debounce();
         //TODO: Refatorar nome de variáveies iterations
-        iterations += hwToInit.encoderRight.Increment();
+        // iterations += hwToInit.encoderRight.Increment();
         synthMenus.iterations = &iterations;
         hwToInit.midi.Listen();
         if(splashScreenRunning)

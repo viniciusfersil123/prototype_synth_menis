@@ -157,12 +157,13 @@ void Menus::drawIcons(
 {
     drawIOIcon(screen);
     drawGainIcon(screen);
+    drawWaveFormIcon(screen);
 }
 
 void Menus::drawIOIcon(
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
-    screen->DrawArc(marginLeft, marginUp - 3,4,135,275,true);
+    screen->DrawArc(marginLeft, marginUp - 3, 4, 135, 275, true);
     screen->DrawLine(marginLeft, marginUp - 8, marginLeft, marginUp - 4, true);
 }
 
@@ -177,6 +178,16 @@ void Menus::drawGainIcon(
                          (marginUp - 1) - i,
                          true);
     }
+}
+void Menus::drawWaveFormIcon(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
+{
+    screen->DrawArc(marginLeft + (this->headerGridWidth) * 2,
+                    marginUp - 3,
+                    4,
+                    135,
+                    275,
+                    true);
 }
 
 void Menus::drawSawGraphics(
@@ -411,6 +422,15 @@ void Menus::Menu1(hardwareToInit* hw, VoiceManager* VoiceMng)
                 this->gain += (float(hw->encoderRight.Increment())) / 45;
             }
             gainHandler(hw, VoiceMng);
+            break;
+        case 2:
+            drawSlider(&hw->oledScreen,
+                       marginLeft - 5,
+                       hw->oledScreen.Height() - (marginBottom + 7),
+                       45,
+                       1,
+                       true,
+                       this->gain);
             break;
         default: break;
     }

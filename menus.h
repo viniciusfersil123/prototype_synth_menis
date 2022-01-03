@@ -89,6 +89,8 @@ class Menus
                float                                                   height,
                float                                                   on,
                float                                                   amount);
+    void drawWaveFormIcon(
+        daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
 };
 
 

@@ -162,9 +162,8 @@ void Menus::drawIcons(
 void Menus::drawIOIcon(
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
-    screen->DrawCircle(marginLeft, marginUp - 3, 2, true);
-    screen->DrawLine(marginLeft, marginUp - 8, marginLeft, marginUp + 2, true);
-    screen->DrawLine(marginLeft, marginUp - 6, marginLeft, marginUp, false);
+    screen->DrawArc(marginLeft, marginUp - 3,4,135,275,true);
+    screen->DrawLine(marginLeft, marginUp - 8, marginLeft, marginUp - 4, true);
 }
 
 void Menus::drawGainIcon(
@@ -191,10 +190,16 @@ void Menus::drawSawGraphics(
     for(size_t i = 0; i < iterations; i++)
     {
         int ratio = width / iterations;
-        screen->DrawLine(
-            x + ratio * i, y, x + ratio * (i + 1), (y - (height*this->gain)), true);
-        screen->DrawLine(
-            x + ratio * (i + 1), (y - (height*this->gain)), x + ratio * (i + 1), y, true);
+        screen->DrawLine(x + ratio * i,
+                         y,
+                         x + ratio * (i + 1),
+                         (y - (height * this->gain)),
+                         true);
+        screen->DrawLine(x + ratio * (i + 1),
+                         (y - (height * this->gain)),
+                         x + ratio * (i + 1),
+                         y,
+                         true);
     }
 }
 

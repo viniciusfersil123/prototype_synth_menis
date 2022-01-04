@@ -182,12 +182,17 @@ void Menus::drawGainIcon(
 void Menus::drawWaveFormIcon(
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
-    screen->DrawArc(marginLeft + (this->headerGridWidth) * 2,
-                    marginUp - 3,
-                    4,
-                    135,
-                    275,
-                    true);
+    const int iconPosRef = marginLeft + (this->headerGridWidth) * 2;
+    screen->DrawLine(
+        iconPosRef - 3, marginUp, iconPosRef + 3, marginUp - 6, true);
+     screen->DrawLine(
+        iconPosRef + 3, marginUp-6, iconPosRef + 3, marginUp, true);
+
+}
+
+void Menus::drawSawIcon(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
+{
 }
 
 void Menus::drawSawGraphics(

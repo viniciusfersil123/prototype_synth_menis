@@ -91,6 +91,8 @@ class Menus
                float                                                   amount);
     void drawWaveFormIcon(
         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+        void drawSawIcon(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
 };
 
 

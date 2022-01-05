@@ -182,17 +182,50 @@ void Menus::drawGainIcon(
 void Menus::drawWaveFormIcon(
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
-    const int iconPosRef = marginLeft + (this->headerGridWidth) * 2;
-    screen->DrawLine(
-        iconPosRef - 3, marginUp, iconPosRef + 3, marginUp - 6, true);
-     screen->DrawLine(
-        iconPosRef + 3, marginUp-6, iconPosRef + 3, marginUp, true);
-
+    // drawSawIcon(screen);
+    // drawSquareIcon(screen);
+    // drawTriangleIcon(screen);
+    drawSineIcon(screen);
 }
 
 void Menus::drawSawIcon(
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
 {
+    const int iconPosRef = marginLeft + (this->headerGridWidth) * 2;
+    screen->DrawLine(
+        iconPosRef - 3, marginUp, iconPosRef + 3, marginUp - 6, true);
+    screen->DrawLine(
+        iconPosRef + 3, marginUp - 6, iconPosRef + 3, marginUp, true);
+}
+
+void Menus::drawSquareIcon(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
+{
+    const int iconPosRef = marginLeft + (this->headerGridWidth) * 2;
+    screen->DrawLine(
+        iconPosRef - 3, marginUp - 6, iconPosRef, marginUp - 6, true);
+    screen->DrawLine(iconPosRef, marginUp, iconPosRef, marginUp - 6, true);
+    screen->DrawLine(iconPosRef, marginUp, iconPosRef + 3, marginUp, true);
+}
+
+void Menus::drawTriangleIcon(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
+{
+    const int iconPosRef = marginLeft + (this->headerGridWidth) * 2;
+    screen->DrawLine(iconPosRef - 4, marginUp, iconPosRef, marginUp - 6, true);
+    screen->DrawLine(iconPosRef, marginUp - 6, iconPosRef + 3, marginUp, true);
+}
+
+void Menus::drawSineIcon(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
+{
+    const int iconPosRef = marginLeft + (this->headerGridWidth) * 2;
+    for(uint8_t i = 0; i < 8; i++)
+    {
+    
+        screen->DrawLine(((iconPosRef - 3) + i)-1, (marginUp - (sin((6.18/12)*i*1.5))*5)-2,((iconPosRef - 3) + (i+1))-1,(marginUp - (sin((6.18/12)*(i+1)*1.5))*5)-2, true);
+    }
+
 }
 
 void Menus::drawSawGraphics(

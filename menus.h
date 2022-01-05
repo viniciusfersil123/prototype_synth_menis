@@ -41,7 +41,7 @@ class Menus
     void splashScreen(
         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
     void
-    drawMenis(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+         drawMenis(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
     void drawSawGraphics(
         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
         uint8_t                                                 xinit,
@@ -66,7 +66,7 @@ class Menus
               uint8_t                                                 y);
 
     void
-    drawIOIcon(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+         drawIOIcon(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
     void onOffHandler(hardwareToInit* hw, VoiceManager* VoiceMng);
     void drawHorizontalToggle(
         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
@@ -82,17 +82,23 @@ class Menus
     void drawGainIcon(
         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
     void
-    drawSlider(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
-               float                                                   x,
-               float                                                   y,
-               float                                                   width,
-               float                                                   height,
-               float                                                   on,
-               float                                                   amount);
+         drawSlider(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+                    float                                                   x,
+                    float                                                   y,
+                    float                                                   width,
+                    float                                                   height,
+                    float                                                   on,
+                    float                                                   amount);
     void drawWaveFormIcon(
         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
-        void drawSawIcon(
-    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+    void
+         drawSawIcon(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+    void drawSquareIcon(
+        daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+    void drawTriangleIcon(
+        daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+    void drawSineIcon(
+        daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
 };
 
 

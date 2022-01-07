@@ -153,11 +153,12 @@ void Menus::drawCursor(
 void Menus::drawIcons(
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
     uint8_t                                                 x,
-    uint8_t                                                 y)
+    uint8_t                                                 y,
+    uint8_t                                                 waveFormSelector)
 {
     drawIOIcon(screen);
     drawGainIcon(screen);
-    drawWaveFormIcon(screen);
+    drawWaveFormIcon(screen, waveFormSelector);
 }
 
 void Menus::drawIOIcon(
@@ -180,12 +181,16 @@ void Menus::drawGainIcon(
     }
 }
 void Menus::drawWaveFormIcon(
-    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+    uint8_t                                                 waveFormSelector)
 {
-    // drawSawIcon(screen);
-    // drawSquareIcon(screen);
-    // drawTriangleIcon(screen);
-    drawSineIcon(screen);
+    switch(waveFormSelector)
+    {
+        case 0: drawSawIcon(screen); break;
+        case 1: drawSquareIcon(screen); break;
+        case 2: drawTriangleIcon(screen); break;
+        case 3: drawSineIcon(screen); break;
+    }
 }
 
 void Menus::drawSawIcon(
@@ -222,10 +227,13 @@ void Menus::drawSineIcon(
     const int iconPosRef = marginLeft + (this->headerGridWidth) * 2;
     for(uint8_t i = 0; i < 8; i++)
     {
-    
-        screen->DrawLine(((iconPosRef - 3) + i)-1, (marginUp - (sin((6.18/12)*i*1.5))*5)-2,((iconPosRef - 3) + (i+1))-1,(marginUp - (sin((6.18/12)*(i+1)*1.5))*5)-2, true);
+        screen->DrawLine(((iconPosRef - 3) + i) - 1,
+                         (marginUp - (sin((6.18 / 12) * i * 1.5)) * 5) - 2,
+                         ((iconPosRef - 3) + (i + 1)) - 1,
+                         (marginUp - (sin((6.18 / 12) * (i + 1) * 1.5)) * 5)
+                             - 2,
+                         true);
     }
-
 }
 
 void Menus::drawSawGraphics(
@@ -407,7 +415,7 @@ void Menus::Menu1(hardwareToInit* hw, VoiceManager* VoiceMng)
     //                         this->parametersCanvas.y2,
     //                         true,
     //                         false);
-    drawIcons(&hw->oledScreen, 0, 0);
+    drawIcons(&hw->oledScreen, 0, 0, waveSelectorIndex);
     hw->oledScreen.DrawLine(
         hw->oledScreen.Width() / 4,
         this->infoCanvas.y1,
@@ -462,6 +470,21 @@ void Menus::Menu1(hardwareToInit* hw, VoiceManager* VoiceMng)
             gainHandler(hw, VoiceMng);
             break;
         case 2:
+        {
+            if(waveSelectorIndex <= 3 && waveSelectorIndex >= 0)
+            {
+                waveSelectorIndex += hw->encoderRight.Increment();
+            }
+            else if(waveSelectorIndex > 3)
+            {
+                waveSelectorIndex = 3;
+            }
+            else if(waveSelectorIndex < 0)
+            {
+                waveSelectorIndex = 0;
+            }
+        }
+
             drawSlider(&hw->oledScreen,
                        marginLeft - 5,
                        hw->oledScreen.Height() - (marginBottom + 7),

@@ -15,14 +15,14 @@ class Menus
     const uint8_t marginUp          = 10;
     const uint8_t marginBottom      = 15;
     uint8_t*      iterations;
-    int           arcAngle        = 0;
-    uint8_t       cursorPos       = 0;
-    uint8_t       headerGridWidth = 20;
-    char          oscIdString[6]  = "OSC I";
-    char          gainLabel[6]    = "0.0db";
-    bool          isOn            = true;
-    float         gain            = 1;
-
+    int           arcAngle          = 0;
+    uint8_t       cursorPos         = 0;
+    uint8_t       headerGridWidth   = 20;
+    char          oscIdString[6]    = "OSC I";
+    char          gainLabel[6]      = "0.0db";
+    bool          isOn              = true;
+    float         gain              = 1;
+    int           waveSelectorIndex = 0;
     struct graphicsArea
     {
         //bottom-left x1,y1 __ top-right x2,y2
@@ -41,7 +41,7 @@ class Menus
     void splashScreen(
         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
     void
-         drawMenis(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+    drawMenis(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
     void drawSawGraphics(
         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
         uint8_t                                                 xinit,
@@ -63,10 +63,11 @@ class Menus
     void
     drawIcons(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
               uint8_t                                                 x,
-              uint8_t                                                 y);
+              uint8_t                                                 y,
+              uint8_t waveFormSelector);
 
     void
-         drawIOIcon(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+    drawIOIcon(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
     void onOffHandler(hardwareToInit* hw, VoiceManager* VoiceMng);
     void drawHorizontalToggle(
         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
@@ -82,17 +83,18 @@ class Menus
     void drawGainIcon(
         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
     void
-         drawSlider(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
-                    float                                                   x,
-                    float                                                   y,
-                    float                                                   width,
-                    float                                                   height,
-                    float                                                   on,
-                    float                                                   amount);
+    drawSlider(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+               float                                                   x,
+               float                                                   y,
+               float                                                   width,
+               float                                                   height,
+               float                                                   on,
+               float                                                   amount);
     void drawWaveFormIcon(
-        daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+        daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+        uint8_t waveFormSelector);
     void
-         drawSawIcon(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+    drawSawIcon(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
     void drawSquareIcon(
         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
     void drawTriangleIcon(

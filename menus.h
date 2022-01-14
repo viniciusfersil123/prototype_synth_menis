@@ -14,7 +14,6 @@ class Menus
     const uint8_t marginRight       = 10;
     const uint8_t marginUp          = 10;
     const uint8_t marginBottom      = 15;
-    uint8_t*      iterations;
     int           arcAngle          = 0;
     uint8_t       cursorPos         = 0;
     uint8_t       headerGridWidth   = 20;
@@ -23,6 +22,7 @@ class Menus
     bool          isOn              = true;
     float         gain              = 1;
     int           waveSelectorIndex = 0;
+    uint8_t       waveDrawIterations = 1;
     struct graphicsArea
     {
         //bottom-left x1,y1 __ top-right x2,y2
@@ -50,7 +50,8 @@ class Menus
         uint8_t                                                 yfinal,
         uint8_t                                                 iterations);
     void drawWaveGraphics(
-        daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+        daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+        int drawWaveGraphicIndex, int drawWaveGraphicsIterations);
     void Menu1(hardwareToInit* hw, VoiceManager* VoiceMng);
     void
     drawCursor(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
@@ -101,6 +102,13 @@ class Menus
         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
     void drawSineIcon(
         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen);
+    void drawSquareGraphics(
+        daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+        uint8_t                                                 x,
+        uint8_t                                                 y,
+        uint8_t                                                 width,
+        uint8_t                                                 height,
+        uint8_t                                                 iterations);
 };
 
 

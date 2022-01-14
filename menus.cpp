@@ -260,6 +260,19 @@ void Menus::drawSawGraphics(
     }
 }
 
+void Menus::drawSquareGraphics(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+    uint8_t                                                 x,
+    uint8_t                                                 y,
+    uint8_t                                                 width,
+    uint8_t                                                 height,
+    uint8_t                                                 iterations)
+{
+   
+        screen->DrawLine(x, y, x + (width / iterations), y, true);
+  
+}
+
 void Menus::drawHorizontalToggle(
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
     uint8_t                                                 x,
@@ -309,20 +322,52 @@ void Menus::drawSilenceGraphics(
 }
 
 void Menus::drawWaveGraphics(
-    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen)
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+    int drawWaveGraphicIndex,
+    int drawWaveGraphicsIterations)
 {
-    // drawSawGraphics(screen,
-    //                 this->waveCanvas.x1,
-    //                 this->waveCanvas.y1,
-    //                 this->waveCanvas.x2,
-    //                 (screen->Height()) - (this->waveCanvas.y2),
-    //                 *iterations);
-    drawSawGraphics(screen,
-                    this->waveCanvas.x1,
-                    this->waveCanvas.y1,
-                    this->waveCanvas.x2,
-                    (screen->Height()) - (this->waveCanvas.y2),
-                    *iterations);
+    switch(drawWaveGraphicIndex)
+    {
+        case 0:
+
+            drawSawGraphics(screen,
+                            this->waveCanvas.x1,
+                            this->waveCanvas.y1,
+                            this->waveCanvas.x2,
+                            (screen->Height()) - (this->waveCanvas.y2),
+                            waveDrawIterations);
+            break;
+        case 1:
+
+            drawSquareGraphics(screen,
+                               this->waveCanvas.x1,
+                               this->waveCanvas.y1,
+                               this->waveCanvas.x2,
+                               (screen->Height()) - (this->waveCanvas.y2),
+                               waveDrawIterations);
+            break;
+            break;
+        case 2:
+
+            drawSquareGraphics(screen,
+                               this->waveCanvas.x1,
+                               this->waveCanvas.y1,
+                               this->waveCanvas.x2,
+                               (screen->Height()) - (this->waveCanvas.y2),
+                               waveDrawIterations);
+            break;
+            break;
+        case 3:
+
+            drawSquareGraphics(screen,
+                               this->waveCanvas.x1,
+                               this->waveCanvas.y1,
+                               this->waveCanvas.x2,
+                               (screen->Height()) - (this->waveCanvas.y2),
+                               waveDrawIterations);
+            break;
+        default: break;
+    }
 }
 
 
@@ -432,7 +477,8 @@ void Menus::Menu1(hardwareToInit* hw, VoiceManager* VoiceMng)
     //                         this->infoCanvas.x2,
     //                         this->infoCanvas.y2,true,false);
     drawInfo(&hw->oledScreen);
-    isOn ? drawWaveGraphics(&hw->oledScreen)
+    isOn ? drawWaveGraphics(
+        &hw->oledScreen, waveSelectorIndex, waveDrawIterations)
          : drawSilenceGraphics(&hw->oledScreen);
     switch(this->cursorPos)
     {
@@ -473,6 +519,7 @@ void Menus::Menu1(hardwareToInit* hw, VoiceManager* VoiceMng)
         {
             if(waveSelectorIndex <= 3 && waveSelectorIndex >= 0)
             {
+                waveDrawIterations += hw->encoderRight.Increment();
                 waveSelectorIndex += hw->encoderRight.Increment();
             }
             else if(waveSelectorIndex > 3)

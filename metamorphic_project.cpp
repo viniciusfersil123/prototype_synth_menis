@@ -13,7 +13,6 @@ using SynthOled = OledDisplay<SSD130x4WireSpi128x64Driver>;
 //VARIABLES
 bool           splashScreenRunning  = true;
 int            splashScreenDuration = 0;
-uint8_t        iterations           = 3;
 hardwareToInit hwToInit;
 VoiceManager   voiceMng;
 Menus          synthMenus(&hwToInit.oledScreen);
@@ -54,7 +53,6 @@ int main(void)
         hwToInit.buttonRight.Debounce();
         //TODO: Refatorar nome de variáveies iterations
         // iterations += hwToInit.encoderRight.Increment();
-        synthMenus.iterations = &iterations;
         hwToInit.midi.Listen();
         if(splashScreenRunning)
         {

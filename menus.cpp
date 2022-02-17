@@ -268,9 +268,30 @@ void Menus::drawSquareGraphics(
     uint8_t                                                 height,
     uint8_t                                                 iterations)
 {
-   
-        screen->DrawLine(x, y, x + (width / iterations), y, true);
-  
+    for(size_t i = 0; i < iterations; i++)
+    {
+        screen->DrawLine(x + height*i, y, x + height*i + (width / iterations), y, true);
+        screen->DrawLine(x + height*i + (width / iterations),
+                         y,
+                         x + height*i + (width / iterations),
+                         y - height,
+                         true);
+        screen->DrawLine(x + height*i + (width / iterations),
+                         y - height,
+                         x + height*i + (width * 2 / iterations),
+                         y - height,
+                         true);
+        screen->DrawLine(x + height*i + (width * 2 / iterations),
+                         y,
+                         x + height*i + (width * 2 / iterations),
+                         y - height,
+                         true);
+        screen->DrawLine(x + height*i + (width * 2 / iterations),
+                         y,
+                         x + height*i + (width * 3 / iterations),
+                         y,
+                         true);
+    }
 }
 
 void Menus::drawHorizontalToggle(

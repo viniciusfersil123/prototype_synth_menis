@@ -260,6 +260,30 @@ void Menus::drawSawGraphics(
     }
 }
 
+void Menus::drawTriangleGraphics(
+    daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+    uint8_t                                                 x,
+    uint8_t                                                 y,
+    uint8_t                                                 width,
+    uint8_t                                                 height,
+    uint8_t                                                 iterations)
+{
+    for(size_t i = 0; i < iterations; i++)
+    {
+        int ratio = (width / iterations)/2;
+        screen->DrawLine(x + (ratio * i)*2,
+                         y,
+                         x + (ratio * (2*i + 1)),
+                         (y - (height * this->gain)),
+                         true);
+        screen->DrawLine(x + (ratio * (2*i + 1)),
+                         (y - (height * this->gain)),
+                         x + (ratio * (i + 1))*2,
+                         y,
+                         true);
+    }
+};
+
 void Menus::drawSquareGraphics(
     daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
     uint8_t                                                 x,
@@ -270,25 +294,26 @@ void Menus::drawSquareGraphics(
 {
     for(size_t i = 0; i < iterations; i++)
     {
-        screen->DrawLine(x + height*i, y, x + height*i + (width / iterations), y, true);
-        screen->DrawLine(x + height*i + (width / iterations),
+        screen->DrawLine(
+            x + height * i, y, x + height * i + (width / iterations), y, true);
+        screen->DrawLine(x + height * i + (width / iterations),
                          y,
-                         x + height*i + (width / iterations),
+                         x + height * i + (width / iterations),
                          y - height,
                          true);
-        screen->DrawLine(x + height*i + (width / iterations),
+        screen->DrawLine(x + height * i + (width / iterations),
                          y - height,
-                         x + height*i + (width * 2 / iterations),
-                         y - height,
-                         true);
-        screen->DrawLine(x + height*i + (width * 2 / iterations),
-                         y,
-                         x + height*i + (width * 2 / iterations),
+                         x + height * i + (width * 2 / iterations),
                          y - height,
                          true);
-        screen->DrawLine(x + height*i + (width * 2 / iterations),
+        screen->DrawLine(x + height * i + (width * 2 / iterations),
                          y,
-                         x + height*i + (width * 3 / iterations),
+                         x + height * i + (width * 2 / iterations),
+                         y - height,
+                         true);
+        screen->DrawLine(x + height * i + (width * 2 / iterations),
+                         y,
+                         x + height * i + (width * 3 / iterations),
                          y,
                          true);
     }
@@ -370,17 +395,17 @@ void Menus::drawWaveGraphics(
             break;
         case 2:
 
-            drawSquareGraphics(screen,
-                               this->waveCanvas.x1,
-                               this->waveCanvas.y1,
-                               this->waveCanvas.x2,
-                               (screen->Height()) - (this->waveCanvas.y2),
-                               waveDrawIterations);
+            drawTriangleGraphics(screen,
+                                 this->waveCanvas.x1,
+                                 this->waveCanvas.y1,
+                                 this->waveCanvas.x2,
+                                 (screen->Height()) - (this->waveCanvas.y2),
+                                 waveDrawIterations);
             break;
             break;
         case 3:
 
-            drawSquareGraphics(screen,
+            drawTriangleGraphics(screen,
                                this->waveCanvas.x1,
                                this->waveCanvas.y1,
                                this->waveCanvas.x2,

@@ -9,19 +9,19 @@
 class Menus
 {
   public:
-    float         splashScreenRectY = 0;
-    const uint8_t marginLeft        = 15;
-    const uint8_t marginRight       = 10;
-    const uint8_t marginUp          = 10;
-    const uint8_t marginBottom      = 15;
-    int           arcAngle          = 0;
-    uint8_t       cursorPos         = 0;
-    uint8_t       headerGridWidth   = 20;
-    char          oscIdString[6]    = "OSC I";
-    char          gainLabel[6]      = "0.0db";
-    bool          isOn              = true;
-    float         gain              = 1;
-    int           waveSelectorIndex = 0;
+    float         splashScreenRectY  = 0;
+    const uint8_t marginLeft         = 15;
+    const uint8_t marginRight        = 10;
+    const uint8_t marginUp           = 10;
+    const uint8_t marginBottom       = 15;
+    int           arcAngle           = 0;
+    uint8_t       cursorPos          = 0;
+    uint8_t       headerGridWidth    = 20;
+    char          oscIdString[6]     = "OSC I";
+    char          gainLabel[6]       = "0.0db";
+    bool          isOn               = true;
+    float         gain               = 1;
+    int           waveSelectorIndex  = 0;
     uint8_t       waveDrawIterations = 1;
     struct graphicsArea
     {
@@ -51,7 +51,8 @@ class Menus
         uint8_t                                                 iterations);
     void drawWaveGraphics(
         daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
-        int drawWaveGraphicIndex, int drawWaveGraphicsIterations);
+        int drawWaveGraphicIndex,
+        int drawWaveGraphicsIterations);
     void Menu1(hardwareToInit* hw, VoiceManager* VoiceMng);
     void
     drawCursor(daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
@@ -109,7 +110,13 @@ class Menus
         uint8_t                                                 width,
         uint8_t                                                 height,
         uint8_t                                                 iterations);
+    void drawTriangleGraphics(
+        daisy::OledDisplay<daisy::SSD130x4WireSpi128x64Driver>* screen,
+        uint8_t                                                 x,
+        uint8_t                                                 y,
+        uint8_t                                                 width,
+        uint8_t                                                 height,
+        uint8_t                                                 iterations);
 };
-
 
 #endif
